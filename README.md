@@ -11,6 +11,9 @@ Um portal educacional desenvolvido para atender às necessidades do cliente, com
 7. [Fernando Soares da Silva](https://github.com/Nando101210)
 8. [Eduardo Henrique de Sá Nogueira Lemos](https://github.com/EduardoHenrique15)
 9. [Luca Ribeiro Albuquerque](https://github.com/LucaAlbuquerque)
+10. Helena Maia Jordão
+11. Raul Pedro Soares de Lima
+12. Maria Eduarda Leal
 
 ## Histórias 
 **HISTÓRIA 1**: Como administrador da plataforma, eu gostaria de adicionar pessoas ao sistema. <br>
