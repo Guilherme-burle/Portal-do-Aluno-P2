@@ -10,6 +10,7 @@ Um portal educacional desenvolvido para atender às necessidades do cliente, com
 6. Victor de Matos Vilela
 7. Fernando Soares da Silva
 8. Eduardo Henrique de Sá Nogueira Lemos
+9. Luca Ribeiro Albuquerque
 
 ## Histórias 
 HISTÓRIA 1: Como administrador da plataforma, eu gostaria de adicionar pessoas ao sistema.
