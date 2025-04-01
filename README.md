@@ -1,6 +1,16 @@
 # Portal-do-Aluno-P2
 Um portal educacional desenvolvido para atender às necessidades do cliente, como parte da disciplina **Projetos 2** na **CESAR School**. O projeto foi realizado sob a supervisão da professora **Carol Melo**.
 
+## Integrantes:
+1. Guilherme Burle Medeiros
+2. Pedro Valença Ferraz
+3. Rafael de Lima Cavalcanti Loyo
+4. Gabriel França de Albuquerque Pernambuco
+5. Caio Cabral da Mata Buonora
+6. Victor de Matos Vilela
+7. Fernando Soares da Silva
+8. Eduardo Henrique de Sá Nogueira Lemos
+
 ## Histórias 
 HISTÓRIA 1: Como administrador da plataforma, eu gostaria de adicionar pessoas ao sistema.
 Dado: Que o administrador está logado no portal
