@@ -21,7 +21,7 @@ Então: O sistema exibe na tela informações como “Nome”, “Idade”, “S
 HISTÓRIA  2: Como administrador da plataforma, eu gostaria de visualizar, atualizar e excluir alunos do sistema. <br>
 Dado: Que o administrador está logado no portal <br>
 Quando: Acessa a aba “Gerenciar alunos” e posteriormente “Visualizar alunos” ou “Atualizar alunos” ou “Excluir alunos” <br>
-Então: O sistema exibe na tela “Aluno excluído” e retorna à página principal do portal <br>
+Então: O sistema exibe na tela os alunos já cadastrados ou vai para uma aba para atualizar o cadastro do aluno ou para outra aba para escolher qual aluno vai ser excluído do portal <br>
 
 HISTÓRIA 3: Como aluno eu gostaria de avaliar a instituição com sugestões de melhorias. <br>
 Dado: Que o aluno está atualmente matriculado e está logado no portal <br>
