@@ -1,5 +1,32 @@
 # Portal-do-Aluno-P2
 Um portal educacional desenvolvido para atender às necessidades do cliente, como parte da disciplina **Projetos 2** na **CESAR School**. O projeto foi realizado sob a supervisão da professora **Carol Melo**.
+
+## Histórias 
+HISTÓRIA 1: Como administrador da plataforma, eu gostaria de adicionar pessoas ao sistema.
+Dado: Que o administrador está logado no portal
+Quando: Acessa a aba “Gerenciar alunos” e posteriormente “Cadastrar alunos”
+Então: O sistema exibe na tela informações como “Nome”, “Idade”, “Situação”, dentre outras para cadastrar um novo aluno.
+
+HISTÓRIA  2: Como administrador da plataforma, eu gostaria de visualizar, atualizar e excluir alunos do sistema.
+Dado: Que o administrador está logado no portal
+Quando: Acessa a aba “Gerenciar alunos” e posteriormente “Visualizar alunos” ou “Atualizar alunos” ou “Excluir alunos”
+Então: O sistema exibe na tela “Aluno excluído” e retorna à página principal do portal
+
+HISTÓRIA 3: Como aluno eu gostaria de avaliar a instituição com sugestões de melhorias.
+Dado: Que o aluno está atualmente matriculado e está logado no portal
+Quando: Acessar a aba “Avalie a Solidare” 
+Então: Ele receba algumas perguntas e deverá respondê-las de acordo com sua opinião
+
+HISTÓRIA 4: Como aluno eu gostaria de acessar o calendário acadêmico da instituição para saber precisamente as datas do calendário.
+Dado: Que o aluno está atualmente matriculado e está logado no portal
+Quando: O aluno acessar a aba “Calendário”
+Então: Será encaminhado para uma aba exibindo todas as datas de provas, entregas de listas e feriados e datas comemorativas
+
+HISTÓRIA 5: Como aluno eu gostaria de acessar a aba para acompanhar o meu desempenho acadêmico e frequência.
+Dado: Que o aluno está atualmente matriculado e está logado no portal
+Quando: O aluno acessar a aba “Desempenho e Frequência”
+Então: Serão exibidas suas notas e faltas durante o ano letivo 
+
  ## Links úteis
  [Jira](https://projeto2grupo10.atlassian.net/jira/software/projects/KAN/boards/1/backlog?assignee=712020%3A5102e8eb-4036-4150-8d35-bdcf805d24b4%2Cunassigned&atlOrigin=eyJpIjoiNTRhZjVmMDFjZjEwNDhkMmI5NGJkYzUxNjRmZjI5MzUiLCJwIjoiaiJ9) <br>
  [Docs](https://docs.google.com/document/d/1Kb8RnBP_5Gz-eml2weoGkFe5UCOAMaLPehDUtYEnm3E/edit?tab=t.0)
