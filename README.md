@@ -10,7 +10,7 @@ Um portal educacional desenvolvido para atender às necessidades do cliente, com
 6. [Victor de Matos Vilela](https://github.com/VI170105)
 7. [Fernando Soares da Silva](https://github.com/Nando101210)
 8. [Eduardo Henrique de Sá Nogueira Lemos](https://github.com/EduardoHenrique15)
-9. [Luca Ribeiro Albuquerque]()
+9. [Luca Ribeiro Albuquerque](https://github.com/LucaAlbuquerque)
 
 ## Histórias 
 **HISTÓRIA 1**: Como administrador da plataforma, eu gostaria de adicionar pessoas ao sistema. <br>
