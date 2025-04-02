@@ -1,5 +1,5 @@
 # Portal-do-Aluno-P2
-Um portal educacional desenvolvido para atender às necessidades do cliente, como parte da disciplina **Projetos 2** na **CESAR School**. O projeto foi realizado sob a supervisão da professora **Carol Melo**.
+Um portal educacional desenvolvido para atender às necessidades do cliente, como parte da disciplina **Projetos 2** na **CESAR School**. O projeto foi realizado sob a supervisão da professora **Ana Carolina Candido de Melo**.
 
 ## Integrantes:
 1. [Guilherme Burle Medeiros](https://github.com/Guilherme-burle)
@@ -28,17 +28,17 @@ Um portal educacional desenvolvido para atender às necessidades do cliente, com
 
 **HISTÓRIA 3**: Como aluno eu gostaria de avaliar a instituição com sugestões de melhorias. <br>
 **Dado**: Que o aluno está atualmente matriculado e está logado no portal <br>
-**Quando**: Acessar a aba “Avalie a Solidare”  <br>
+**Quando**: Acessa a aba “Avalie a Solidare”  <br>
 **Então**: Ele receba algumas perguntas e deverá respondê-las de acordo com sua opinião <br>
 
 **HISTÓRIA 4**: Como aluno eu gostaria de acessar o calendário acadêmico da instituição para saber precisamente as datas do calendário. <br>
 **Dado**: Que o aluno está atualmente matriculado e está logado no portal <br>
-**Quando**: O aluno acessar a aba “Calendário” <br>
+**Quando**: O aluno acessa a aba “Calendário” <br>
 **Então**: Será encaminhado para uma aba exibindo todas as datas de provas, entregas de listas e feriados e datas comemorativas <br>
 
 **HISTÓRIA 5**: Como aluno eu gostaria de acessar a aba para acompanhar o meu desempenho acadêmico e frequência. <br>
 **Dado**: Que o aluno está atualmente matriculado e está logado no portal <br>
-**Quando**: O aluno acessar a aba “Desempenho e Frequência” <br>
+**Quando**: O aluno acessa a aba “Desempenho e Frequência” <br>
 **Então**: Serão exibidas suas notas e faltas durante o ano letivo  <br>
 
 
