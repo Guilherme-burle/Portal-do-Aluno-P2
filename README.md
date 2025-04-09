@@ -3,7 +3,7 @@
 Um portal educacional desenvolvido para atender às necessidades do cliente, como parte da disciplina **Projetos 2** na **CESAR School**.  
 Projeto realizado sob a supervisão da professora **Ana Carolina Candido de Melo**.
 
----
+----
 
 ## 👥 Integrantes
 
@@ -130,8 +130,7 @@ Projeto realizado sob a supervisão da professora **Ana Carolina Candido de Melo
 
 ## 🔗 Links Úteis
 
-- [Jira - Kanban do Projeto](https://projeto2grupo10.atlassian.net/jira/software/projects/KAN/boards/1/backlog?assignee=712020%3A5102e8eb-4036-4150-8d35-bdcf805d24b4%2Cunassigned&atlOrigin=eyJpIjoiNTRhZjVmMDFjZjEwNDhkMmI5NGJkYzUxNjRmZjI5MzUiLCJwIjoiaiJ9)  
-- [Google Docs - Documentação do Projeto](https://docs.google.com/document/d/1Kb8RnBP_5Gz-eml2weoGkFe5UCOAMaLPehDUtYEnm3E/edit?tab=t.0)
+- [Jira](https://projeto2grupo10.atlassian.net/jira/software/projects/KAN/boards/1/backlog?assignee=712020%3A5102e8eb-4036-4150-8d35-bdcf805d24b4%2Cunassigned&atlOrigin=eyJpIjoiNTRhZjVmMDFjZjEwNDhkMmI5NGJkYzUxNjRmZjI5MzUiLCJwIjoiaiJ9)  
+- [Docs](https://docs.google.com/document/d/1Kb8RnBP_5Gz-eml2weoGkFe5UCOAMaLPehDUtYEnm3E/edit?tab=t.0)
 
----
 
