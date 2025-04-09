@@ -1,0 +1,40 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+media/
+staticfiles/
+
+# Local settings
+*.env
+.env.*
+.settings_local.py
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS / Windows system files
+.DS_Store
+Thumbs.db
+
+# Migrations (opcional, se quiser ignorar antes de fazer o primeiro commit delas)
+# **/migrations/
+# !**/migrations/__init__.py
