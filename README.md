@@ -20,8 +20,8 @@ Um portal educacional desenvolvido para atender às necessidades do cliente, com
 </details>
 
 <details>
-
-<summary>Histórias</summary>
+## Histórias
+<summary>Ver detalhes</summary>
 
 <br>
 
