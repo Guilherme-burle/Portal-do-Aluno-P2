@@ -1,5 +1,7 @@
-from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login as auth_login
+from .models import Aluno
 
 def cadastro(request):
     if request.method == 'POST':
@@ -38,4 +40,29 @@ def cadastro(request):
     return render(request, 'cadastro.html')
 
 def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user:
+            auth_login(request, user)
+            return redirect('home')  
+        else:
+            return render(request, 'login.html', {'erro': 'Credenciais inválidas'})
     return render(request, 'login.html')
+
+def add_aluno(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        idade = request.POST.get('idade')
+        curso = request.POST.get('curso')
+        endereco = request.POST.get('endereco')
+
+        Aluno.objects.create(
+            nome=nome,
+            idade=idade,
+            curso=curso,
+            endereco=endereco
+        )
+        return redirect('homeadm')  # ou outra página de confirmação
+    return render(request, 'add.html')

@@ -74,18 +74,19 @@
       <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
     </div>
     <h3>Adicionar Novo Aluno</h3>
-    <form>
-      <input type="text" placeholder="Nome completo" required>
-      <input type="number" placeholder="Idade" required>
-      <select required>
-        <option value="" disabled selected>Curso desejado</option>
-        <option value="programacao">Programação</option>
-        <option value="mecanica">Mecânica</option>
-        <option value="praticas">Práticas Administrativas</option>
-      </select>
-      <input type="text" placeholder="Endereço" required>
-      <button type="submit" class="btn-submit">Adicionar Aluno</button>
-    </form>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="nome" placeholder="Nome completo" required>
+        <input type="number" name="idade" placeholder="Idade" required>
+        <select name="curso" required>
+          <option value="" disabled selected>Curso desejado</option>
+          <option value="programacao">Programação</option>
+          <option value="mecanica">Mecânica</option>
+          <option value="praticas">Práticas Administrativas</option>
+        </select>
+        <input type="text" name="endereco" placeholder="Endereço" required>
+        <button type="submit" class="btn-submit">Adicionar Aluno</button>
+      </form>
   </div>
 </body>
 </html>
