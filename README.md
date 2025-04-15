@@ -132,5 +132,6 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - [Jira](https://projeto2grupo10.atlassian.net/jira/software/projects/KAN/boards/1/backlog?assignee=712020%3A5102e8eb-4036-4150-8d35-bdcf805d24b4%2Cunassigned&atlOrigin=eyJpIjoiNTRhZjVmMDFjZjEwNDhkMmI5NGJkYzUxNjRmZjI5MzUiLCJwIjoiaiJ9)  
 - [Docs](https://docs.google.com/document/d/1Kb8RnBP_5Gz-eml2weoGkFe5UCOAMaLPehDUtYEnm3E/edit?tab=t.0)
+- [Site](https://sites.google.com/d/1QneHjgrhPjpQ_i9iDOVrf8Ivn7McXcIN/p/1fAGUYkQG2JxVmydQqaz1o78MrP8PPQCt/edit)
 
 
