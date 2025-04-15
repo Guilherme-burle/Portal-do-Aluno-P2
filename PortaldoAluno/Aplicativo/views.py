@@ -1,7 +1,16 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
 from .models import Aluno
+from .decorators import login_required 
+
+
+def home(request):
+    return render(request, 'home.html')
+
+@login_required
+def home_adm(request):
+    return render(request, 'homeadm.html')
 
 def cadastro(request):
     if request.method == 'POST':
@@ -46,7 +55,7 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         if user:
             auth_login(request, user)
-            return redirect('home')  
+            return redirect('homeadm') if user.is_staff else redirect('home')
         else:
             return render(request, 'login.html', {'erro': 'Credenciais inválidas'})
     return render(request, 'login.html')
@@ -64,5 +73,18 @@ def add_aluno(request):
             curso=curso,
             endereco=endereco
         )
-        return redirect('homeadm')  # ou outra página de confirmação
-    return render(request, 'add.html')
+        return redirect('homeadm')  
+    if not all([nome, idade, curso, endereco]):
+        return render(request, 'add.html', {'erro': 'Todos os campos são obrigatórios'})
+
+
+@login_required
+def excluir_aluno(request, aluno_id=None):
+    if aluno_id:
+        aluno = get_object_or_404(Aluno, id=aluno_id)
+        aluno.delete()
+        return redirect('excluir_aluno')
+
+    alunos = Aluno.objects.all()
+    return render(request, 'excluirAluno.html', {'alunos': alunos})
+

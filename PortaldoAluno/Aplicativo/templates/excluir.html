@@ -80,58 +80,31 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">
-      <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
-    </div>
-    <h3>Excluir Aluno</h3>
-    <div id="lista-alunos"></div>
-  </div>
-
-  <script>
-    // Simulando dados vindos do banco
-    let alunos = [
-      { id: 1, nome: "João da Silva", idade: 17, curso: "Programação" },
-      { id: 2, nome: "Maria Oliveira", idade: 18, curso: "Mecânica" },
-      { id: 3, nome: "Carlos Souza", idade: 16, curso: "Práticas Administrativas" }
-    ];
-
-    const lista = document.getElementById('lista-alunos');
-
-    function renderizarAlunos() {
-      lista.innerHTML = "";
-
-      if (alunos.length === 0) {
-        lista.innerHTML = "<p class='mensagem'>Nenhum aluno cadastrado</p>";
-        return;
-      }
-
-      alunos.forEach((aluno, index) => {
-        const card = document.createElement("div");
-        card.className = "aluno-card";
-
-        card.innerHTML = `
-          <div class="aluno-info">
-            <strong>${aluno.nome}</strong><br>
-            Idade: ${aluno.idade}<br>
-            Curso: ${aluno.curso}
+    <div class="container">
+      <div class="logo">
+        <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
+      </div>
+      <h3>Excluir Aluno</h3>
+  
+      {% if alunos %}
+        {% for aluno in alunos %}
+          <div class="aluno-card">
+            <div class="aluno-info">
+              <strong>{{ aluno.nome }}</strong><br>
+              Idade: {{ aluno.idade }}<br>
+              Curso: {{ aluno.get_curso_display }}
+            </div>
+            <form method="post">
+              {% csrf_token %}
+              <input type="hidden" name="aluno_id" value="{{ aluno.id }}">
+              <button type="submit" class="btn-excluir">Excluir Aluno</button>
+            </form>
           </div>
-          <button class="btn-excluir" onclick="excluirAluno(${index})">Excluir Aluno</button>
-        `;
-
-        lista.appendChild(card);
-      });
-    }
-
-    function excluirAluno(index) {
-      if (confirm("Tem certeza que deseja excluir este aluno?")) {
-        alunos.splice(index, 1);
-        renderizarAlunos();
-      }
-    }
-
-    // Inicializa a lista
-    renderizarAlunos();
-  </script>
-</body>
+        {% endfor %}
+      {% else %}
+        <p class="mensagem">Nenhum aluno cadastrado</p>
+      {% endif %}
+    </div>
+  </body>
+  
 </html>
