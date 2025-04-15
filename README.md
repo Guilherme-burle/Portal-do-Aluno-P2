@@ -22,7 +22,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 ---
 
-## 📖 Histórias de Usuário
+## Histórias de Usuário
 
 <details>
 <summary><strong>História 1:</strong> Como administrador da plataforma, eu gostaria de adicionar alunos ao sistema.</summary>
@@ -125,6 +125,9 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
   Então os campos aparecem em branco pois não foram preenchidos ainda.
 
 </details>
+
+## Issue / Bugtracker:
+![image](https://github.com/user-attachments/assets/e03b057d-c2e3-4e69-a69d-b92a905d175d)
 
 ---
 
