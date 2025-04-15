@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Excluir Aluno - Instituto Solidare</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f8fa;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      border: 2px solid #00a0e4;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 500px;
+      max-width: 90%;
+    }
+
+    .logo {
+      background-color: #00a0e4;
+      padding: 15px;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      justify-content: center;
+      margin: -30px -30px 20px -30px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    h3 {
+      color: #00a0e4;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .aluno-card {
+      background-color: #f0f8ff;
+      border: 1px solid #00a0e4;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .aluno-info {
+      text-align: left;
+    }
+
+    .btn-excluir {
+      background-color: #e40000;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn-excluir:hover {
+      background-color: #c70000;
+    }
+
+    .mensagem {
+      text-align: center;
+      color: #777;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="logo">
+        <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
+      </div>
+      <h3>Excluir Aluno</h3>
+  
+      {% if alunos %}
+        {% for aluno in alunos %}
+          <div class="aluno-card">
+            <div class="aluno-info">
+              <strong>{{ aluno.nome }}</strong><br>
+              Idade: {{ aluno.idade }}<br>
+              Curso: {{ aluno.get_curso_display }}
+            </div>
+            <form method="post">
+              {% csrf_token %}
+              <input type="hidden" name="aluno_id" value="{{ aluno.id }}">
+              <button type="submit" class="btn-excluir">Excluir Aluno</button>
+            </form>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="mensagem">Nenhum aluno cadastrado</p>
+      {% endif %}
+    </div>
+  </body>
+  
+</html>
