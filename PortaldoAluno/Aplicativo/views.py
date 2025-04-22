@@ -60,6 +60,7 @@ def login(request):
             return render(request, 'login.html', {'erro': 'Credenciais inválidas'})
     return render(request, 'login.html')
 
+@login_required
 def add_aluno(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
