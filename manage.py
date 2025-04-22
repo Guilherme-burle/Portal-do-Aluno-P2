@@ -3,14 +3,13 @@
 import os
 import sys
 
-# Adiciona a raiz do projeto ao sys.path (pasta atual do manage.py)
+# Adiciona a pasta "PortaldoAluno" ao sys.path
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, BASE_DIR)
+sys.path.insert(0, os.path.join(BASE_DIR, 'PortaldoAluno'))
 
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'PortaldoAluno.projeto.settings')
-
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

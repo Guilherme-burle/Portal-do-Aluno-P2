@@ -22,7 +22,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 ---
 
-## 📖 Histórias de Usuário
+## Histórias de Usuário
 
 <details>
 <summary><strong>História 1:</strong> Como administrador da plataforma, eu gostaria de adicionar alunos ao sistema.</summary>
@@ -126,11 +126,15 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 </details>
 
+## Issue / Bugtracker:
+![image](https://github.com/user-attachments/assets/e03b057d-c2e3-4e69-a69d-b92a905d175d)
+
 ---
 
 ## 🔗 Links Úteis
 
 - [Jira](https://projeto2grupo10.atlassian.net/jira/software/projects/KAN/boards/1/backlog?assignee=712020%3A5102e8eb-4036-4150-8d35-bdcf805d24b4%2Cunassigned&atlOrigin=eyJpIjoiNTRhZjVmMDFjZjEwNDhkMmI5NGJkYzUxNjRmZjI5MzUiLCJwIjoiaiJ9)  
 - [Docs](https://docs.google.com/document/d/1Kb8RnBP_5Gz-eml2weoGkFe5UCOAMaLPehDUtYEnm3E/edit?tab=t.0)
+- [Site](https://sites.google.com/d/1QneHjgrhPjpQ_i9iDOVrf8Ivn7McXcIN/p/1fAGUYkQG2JxVmydQqaz1o78MrP8PPQCt/edit)
 
 
