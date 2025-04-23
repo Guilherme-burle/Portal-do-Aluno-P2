@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Cadastro - Instituto Solidare</title>
+  <title>Login - Instituto Solidare</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -31,7 +31,6 @@
       border-radius: 10px 10px 0 0;
       display: flex;
       justify-content: center;
-      margin: -40px -40px 20px -40px;
     }
 
     .logo img {
@@ -40,7 +39,7 @@
 
     h3 {
       color: #00a0e4;
-      margin-bottom: 30px;
+      margin-top: 20px;
     }
 
     input {
@@ -51,14 +50,7 @@
       border-radius: 5px;
     }
 
-    label {
-      display: block;
-      text-align: left;
-      margin-top: 10px;
-      color: #333;
-    }
-
-    .btn-cadastrar {
+    .btn-login {
       background-color: #00a0e4;
       color: white;
       border: none;
@@ -67,24 +59,20 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 15px;
+      margin-top: 10px;
     }
 
-    .btn-cadastrar:hover {
-      background-color: #007bbd;
-    }
-
-    .login {
+    .cadastro {
       margin-top: 20px;
       font-size: 14px;
     }
 
-    .login a {
+    .cadastro a {
       color: #007bff;
       text-decoration: none;
     }
 
-    .login a:hover {
+    .cadastro a:hover {
       text-decoration: underline;
     }
   </style>
@@ -94,26 +82,16 @@
     <div class="logo">
       <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
     </div>
-    
-    <h3>Crie sua conta</h3>
+    <h3>Acesse sua conta</h3>
+<form method="pop">
+  {% csrf_token %}
+  <input type="text" name="username" placeholder="E-mail" required>
+  <input type="password" name="password" placeholder="Senha" required>
+  <button type="submit" class="btn-login">Entrar</button>
+</form>
+<div class="cadastro">
+  Não tem uma conta? <a href="{% url 'cadastro' %}">Cadastre-se aqui</a>
+</div>
 
-    <form method="post">
-      {% csrf_token %}
-      <input type="text" name="nome" placeholder="Nome" required>
-      <input type="email" name="email" placeholder="E-mail" required>
-      <input type="password" name="senha" placeholder="Senha" required>
-    
-      <div style="display: flex; align-items: center; margin-top: 10px; gap: 8px;">
-        <input type="checkbox" name="is_admin" id="is_admin">
-        <label for="is_admin">Administrador</label>
-      </div>
-    
-      <button type="submit" class="btn-cadastrar">Cadastrar</button>
-    </form>
-    
-    <div class="login">
-      Já tem uma conta? <a href="{% url 'login' %}">Faça login</a>
-    </div>
-  </div>
 </body>
 </html>

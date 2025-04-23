@@ -47,7 +47,7 @@ def login(request):
             auth_login(request, user)
             return redirect('homeadm') if user.is_staff else redirect('home')
         else:
-            return render(request, 'login.html', {'erro': 'Informações inválidas'})
+            return render(request, 'login.html', {'erro': 'Credenciais inválidas'})
     return render(request, 'login.html')
 
 

@@ -97,19 +97,6 @@
     
     <h3>Crie sua conta</h3>
 
-    <form method="post">
-      {% csrf_token %}
-      <input type="text" name="nome" placeholder="Nome" required>
-      <input type="email" name="email" placeholder="E-mail" required>
-      <input type="password" name="senha" placeholder="Senha" required>
-    
-      <div style="display: flex; align-items: center; margin-top: 10px; gap: 8px;">
-        <input type="checkbox" name="is_admin" id="is_admin">
-        <label for="is_admin">Administrador</label>
-      </div>
-    
-      <button type="submit" class="btn-cadastrar">Cadastrar</button>
-    </form>
     
     <div class="login">
       Já tem uma conta? <a href="{% url 'login' %}">Faça login</a>

@@ -39,7 +39,7 @@ def cadastro(request):
 
 def login(request):
     if request.method == 'POST':
-        username = request.POST.get('username') 
+        username = request.POST.get('username')  # certifique-se de que o HTML usa esse name
         password = request.POST.get('password')
 
         user = authenticate(request, username=username, password=password)
@@ -47,7 +47,7 @@ def login(request):
             auth_login(request, user)
             return redirect('homeadm') if user.is_staff else redirect('home')
         else:
-            return render(request, 'login.html', {'erro': 'Informações inválidas'})
+            return render(request, 'login.html', {'erro': 'Credenciais inválidas'})
     return render(request, 'login.html')
 
 
