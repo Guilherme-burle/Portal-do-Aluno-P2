@@ -25,7 +25,7 @@ def cadastro(request):
             })
 
         user = User.objects.create_user(
-            username=email,
+            username=nome,
             email=email,
             password=senha,
             is_superuser=is_admin,

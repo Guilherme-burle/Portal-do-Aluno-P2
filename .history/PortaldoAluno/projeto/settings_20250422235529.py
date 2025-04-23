@@ -9,8 +9,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 AUTHENTICATION_BACKENDS = [
-    'Aplicativo.backends.EmailBackend',  
-    'django.contrib.auth.backends.ModelBackend',
+    'Aplicativo.backends.EmailBackend',  # Substitua 'Aplicativo' pelo nome do seu app
+    'django.contrib.auth.backends.ModelBackend',al
 ]
 
 INSTALLED_APPS = [
