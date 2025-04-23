@@ -57,6 +57,11 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
   Quando acessa a aba “Gerenciar alunos” e seleciona “Atualizar”
   Então os dados do aluno escolhido são exibidos para edição.
 
+- **Cenário favorável 3:**  
+  Dado que o administrador está logado no portal  
+  Quando acessa a aba “Gerenciar alunos” e seleciona “Excluir”
+  Então os alunos são exibidos e há a opção de deletá-los do sistema.
+
 - **Cenário desfavorável 1:**  
   Dado que o administrador está logado  
   Quando acessa a aba “Atualizar alunos”  
