@@ -49,17 +49,17 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário favorável 1:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Gerenciar alunos” e seleciona “Visualizar” 
+  Quando acessa a aba “Gerenciar alunos” e seleciona “Visualizar” <br>
   Então o sistema exibe todos os alunos cadastrados no banco de dados.
 
 - **Cenário favorável 2:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Gerenciar alunos” e seleciona “Atualizar”
+  Quando acessa a aba “Gerenciar alunos” e seleciona “Atualizar” <br>
   Então os dados do aluno escolhido são exibidos para edição.
 
 - **Cenário favorável 3:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Gerenciar alunos” e seleciona “Excluir”
+  Quando acessa a aba “Gerenciar alunos” e seleciona “Excluir” <br>
   Então os alunos são exibidos e há a opção de deletá-los do sistema.
 
 - **Cenário desfavorável 1:**  
