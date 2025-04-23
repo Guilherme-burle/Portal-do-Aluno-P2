@@ -54,15 +54,15 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         
-        print(f"Username: {username}, Password: {password}")  
+        print(f"Username: {username}, Password: {password}")  # Debugging
         user = authenticate(request, username=username, password=password)
         
         if user:
-            print("Usuário autenticado!") 
+            print("Usuário autenticado!")  # Debugging
             auth_login(request, user)
             return redirect('homeadm') if user.is_staff else redirect('home')
         else:
-            print("Credenciais inválidas") 
+            print("Credenciais inválidas")  # Debugging
             return render(request, 'login.html', {'erro': 'Credenciais inválidas'})
     
     return render(request, 'login.html')
@@ -89,6 +89,7 @@ def add_aluno(request):
 
     return render(request, 'add.html')
 
+# Excluir aluno
 @login_required
 def excluir_aluno(request, aluno_id=None):
     if aluno_id:

@@ -62,7 +62,7 @@ def login(request):
             auth_login(request, user)
             return redirect('homeadm') if user.is_staff else redirect('home')
         else:
-            print("Credenciais inválidas") 
+            print("Credenciais inválidas")  # Debugging
             return render(request, 'login.html', {'erro': 'Credenciais inválidas'})
     
     return render(request, 'login.html')
@@ -89,6 +89,7 @@ def add_aluno(request):
 
     return render(request, 'add.html')
 
+# Excluir aluno
 @login_required
 def excluir_aluno(request, aluno_id=None):
     if aluno_id:

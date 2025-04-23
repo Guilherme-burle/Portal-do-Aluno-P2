@@ -11,6 +11,7 @@ def home(request):
 def home_adm(request):
     return render(request, 'homeadm.html')
 
+
 def cadastro(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
@@ -18,17 +19,23 @@ def cadastro(request):
         senha = request.POST.get('senha')
         is_admin = request.POST.get('is_admin') == 'on' 
 
+        # Debug: Print os valores recebidos
         print(f"Nome: {nome}")
         print(f"E-mail: {email}")
         print(f"Senha: {senha}")
         print(f"Administrador: {is_admin}")
 
         if User.objects.filter(email=email).exists():  
-            return render(request, 'cadastro.html', {'mensagem': 'E-mail já está em uso.'})
-        
+            print("E-mail já cadastrado.")
+            return render(request, 'cadastro.html', {
+                'mensagem': 'E-mail já está em uso.',
+                'tipo_mensagem': 'error'
+            })
+
+        # Criação do usuário
         try:
             user = User.objects.create_user(
-                username=email,  
+                username=email,  # Usando o email como username
                 email=email,
                 password=senha,
                 is_superuser=is_admin,
@@ -36,14 +43,15 @@ def cadastro(request):
             )
             user.save()
 
+            # Debug: Print de sucesso
             print(f"Usuário {user.username} cadastrado com sucesso!")
-            
             return redirect('login')
 
         except Exception as e:
+            # Em caso de erro, imprimir no console
             print(f"Erro ao criar o usuário: {e}")
             return render(request, 'cadastro.html', {
-                'mensagem': 'Erro ao cadastrar o usuário. Tente novamente.',
+                'mensagem': 'Erro ao cadastrar o usuário.',
                 'tipo_mensagem': 'error'
             })
 
@@ -54,15 +62,15 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         
-        print(f"Username: {username}, Password: {password}")  
+        print(f"Username: {username}, Password: {password}")  # Debugging
         user = authenticate(request, username=username, password=password)
         
         if user:
-            print("Usuário autenticado!") 
+            print("Usuário autenticado!")  # Debugging
             auth_login(request, user)
             return redirect('homeadm') if user.is_staff else redirect('home')
         else:
-            print("Credenciais inválidas") 
+            print("Credenciais inválidas")  # Debugging
             return render(request, 'login.html', {'erro': 'Credenciais inválidas'})
     
     return render(request, 'login.html')
@@ -89,6 +97,7 @@ def add_aluno(request):
 
     return render(request, 'add.html')
 
+# Excluir aluno
 @login_required
 def excluir_aluno(request, aluno_id=None):
     if aluno_id:

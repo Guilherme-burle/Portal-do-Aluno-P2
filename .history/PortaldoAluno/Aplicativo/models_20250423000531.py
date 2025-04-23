@@ -19,6 +19,7 @@ class Aluno(models.Model):
 
 class Cadastro(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # A senha e o e-mail são gerenciados pelo modelo User do Django.
 
     def __str__(self):
         return self.user.username

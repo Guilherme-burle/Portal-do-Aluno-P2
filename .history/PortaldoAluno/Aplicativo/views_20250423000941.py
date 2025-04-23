@@ -89,6 +89,7 @@ def add_aluno(request):
 
     return render(request, 'add.html')
 
+# Excluir aluno
 @login_required
 def excluir_aluno(request, aluno_id=None):
     if aluno_id:
