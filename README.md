@@ -133,8 +133,11 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 ![image](https://github.com/user-attachments/assets/e03b057d-c2e3-4e69-a69d-b92a905d175d)
 
 ---
+## Screencasts
+- [Sreencast protótipo Lo-Fi]()
+- [Screencast Portal do Aluno]()
 
-## 🔗 Links Úteis
+## Links Úteis
 
 - [Jira](https://projeto2grupo10.atlassian.net/jira/software/projects/KAN/boards/1/backlog?assignee=712020%3A5102e8eb-4036-4150-8d35-bdcf805d24b4%2Cunassigned&atlOrigin=eyJpIjoiNTRhZjVmMDFjZjEwNDhkMmI5NGJkYzUxNjRmZjI5MzUiLCJwIjoiaiJ9)  
 - [Docs](https://docs.google.com/document/d/1Kb8RnBP_5Gz-eml2weoGkFe5UCOAMaLPehDUtYEnm3E/edit?tab=t.0)
