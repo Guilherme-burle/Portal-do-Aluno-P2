@@ -142,7 +142,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 ---
 
 ## Issue / Bugtracker:
-![image](https://github.com/user-attachments/assets/e03b057d-c2e3-4e69-a69d-b92a905d175d)
+![image](https://github.com/user-attachments/assets/029987bb-12a3-4aa8-9940-f5319837ef98)
 
 ---
 ## Screencasts
