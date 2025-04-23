@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Home Administrador - Instituto Solidare</title>
+  <title>Adicionar Aluno - Instituto Solidare</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,7 +22,7 @@
       border: 2px solid #00a0e4;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
-      width: 350px;
+      width: 400px;
     }
 
     .logo {
@@ -40,10 +40,18 @@
 
     h3 {
       color: #00a0e4;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
-    .btn {
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn-submit {
       background-color: #00a0e4;
       color: white;
       border: none;
@@ -52,10 +60,10 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-      margin: 10px 0;
+      margin-top: 10px;
     }
 
-    .btn:hover {
+    .btn-submit:hover {
       background-color: #007bbd;
     }
   </style>
@@ -65,10 +73,20 @@
     <div class="logo">
       <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
     </div>
-    <h3>Painel do Administrador</h3>
-    <button class="btn" onclick="location.href='{% url 'add' %}'">Adicionar Aluno</button>
-    <button class="btn" onclick="location.href='{% url 'excluir' %}'">Excluir Aluno</button>
-    <button class="btn" onclick="location.href='{% url 'atualizar' %}'">Atualizar Aluno</button>
+    <h3>Adicionar Novo Aluno</h3>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="nome" placeholder="Nome completo" required>
+        <input type="number" name="idade" placeholder="Idade" required>
+        <select name="curso" required>
+          <option value="" disabled selected>Curso desejado</option>
+          <option value="programacao">Programação</option>
+          <option value="mecanica">Mecânica</option>
+          <option value="praticas">Práticas Administrativas</option>
+        </select>
+        <input type="text" name="endereco" placeholder="Endereço" required>
+        <button type="submit" class="btn-submit">Adicionar Aluno</button>
+      </form>
   </div>
 </body>
 </html>

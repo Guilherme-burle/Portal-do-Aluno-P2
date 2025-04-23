@@ -64,17 +64,17 @@
       font-weight: bold;
       margin-top: 15px;
     }
-    
+
     .voltar {
       margin-top: 15px;
       font-size: 14px;
     }
-    
+
     .voltar a {
       color: #007bff;
       text-decoration: none;
     }
-    
+
     .voltar a:hover {
       text-decoration: underline;
     }
@@ -89,10 +89,8 @@
     <form method="POST">
       {% csrf_token %}    
       <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
-      <input type="email" name="email" placeholder="E-mail" required>
-      <input type="password" name="senha" placeholder="Senha" required>
       <input type="date" placeholder="Data de nascimento" required>
-      
+
       <select required>
         <option value="">Escolaridade</option>
         <option value="medio-incompleto">Ensino médio incompleto</option>
@@ -109,7 +107,7 @@
 
       <input type="text" placeholder="Nome da escola" required>
       <input type="text" placeholder="Endereço completo" required>
-      
+
       <select required>
         <option value="">Bairro</option>
         <option value="aflitos">Aflitos</option>
@@ -206,7 +204,7 @@
         Cadastrar como administrador
       </label>      
 
-      <button type="submit" class="btn-cadastro">Adicionar aluno</button>
+      <button type="submit" class="btn-cadastro">FINALIZAR CADASTRO</button>
     </form>
     <div class="voltar">
       Já tem uma conta? <a href="{% url 'login' %}">Voltar para o login</a>
