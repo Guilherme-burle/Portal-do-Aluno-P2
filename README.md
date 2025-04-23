@@ -29,38 +29,38 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário favorável 1:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Gerenciar alunos” e posteriormente “Cadastrar alunos”  
-  Então o sistema exibe uma mensagem indicando que é preciso preencher todas as informações.
-
-- **Cenário favorável 2:**  
-  Dado que o administrador está logado no portal  
-  Quando acessa a aba “Gerenciar alunos” e posteriormente “Cadastrar alunos”  
-  Então o sistema exibe campos como “Nome”, “Idade”, “Situação”, entre outros.
+  Quando acessa a aba “Cadastrar alunos”  
+  Então o sistema indica que é preciso preencher todas as informações, feito isso, salva tudo que foi pedido no banco de dados.
 
 - **Cenário desfavorável 1:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Gerenciar alunos” e posteriormente “Cadastrar alunos”  
-  Então o sistema não responde adequadamente à tentativa de cadastro.
+  Quando acessa a aba “Cadastrar alunos”  
+  Então o sistema não responde adequadamente à tentativa de cadastro, pois no lugar de números foram inseridas letras na idade.
+
+- **Cenário desfavorável 2:**  
+  Dado que o administrador está logado no portal  
+  Quando acessa a aba “Cadastrar alunos”  
+  Então o sistema não responde adequadamente à tentativa de cadastro, pois um número foi inserido no lugar do nome.
 
 </details>
 
 <details>
-<summary><strong>História 2:</strong> Como administrador da plataforma, eu gostaria de visualizar, atualizar e excluir alunos do sistema.</summary>
+<summary><strong>História 2:</strong> Como administrador da plataforma, eu gostaria de Gerenciar alunos, ou seja: visualizar, atualizar e excluir alunos do sistema.</summary>
 
 - **Cenário favorável 1:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Gerenciar alunos” e seleciona “Visualizar”, “Atualizar” ou “Excluir alunos”  
-  Então o sistema exibe os alunos cadastrados ou permite as ações desejadas.
+  Quando acessa a aba “Gerenciar alunos” e seleciona “Visualizar” 
+  Então o sistema exibe todos os alunos cadastrados no banco de dados.
 
 - **Cenário favorável 2:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Atualizar alunos”  
-  Então os dados dos alunos são exibidos para edição.
+  Quando acessa a aba “Gerenciar alunos” e seleciona “Atualizar”
+  Então os dados do aluno escolhido são exibidos para edição.
 
 - **Cenário desfavorável 1:**  
   Dado que o administrador está logado  
   Quando acessa a aba “Atualizar alunos”  
-  Então nenhum aluno aparece pois ainda não há dados cadastrados.
+  Então nenhum aluno aparece pois ainda não há alunos cadastrados.
 
 </details>
 
@@ -90,17 +90,17 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - **Cenário favorável 1:**  
   Dado que o aluno está matriculado e logado  
   Quando acessa a aba “Calendário”  
-  Então são exibidas datas de provas, entregas, feriados e comemorações.
-
-- **Cenário favorável 2:**  
-  Dado que o aluno está logado  
-  Quando acessa a aba “Calendário”  
-  Então as informações acadêmicas são mostradas corretamente.
+  Então são exibidas as informações acadêmicas, como: datas de provas, entregas, feriados e comemorações.
 
 - **Cenário desfavorável 1:**  
   Dado que o aluno está logado  
   Quando acessa a aba “Calendário”  
-  Então as datas aparecem em branco pois não foram cadastradas.
+  Então as informações não aparecem pois a letra dos eventos está da mesma cor do caléndario.
+
+- **Cenário desfavorável 2:**  
+  Dado que o aluno está logado  
+  Quando acessa a aba “Calendário”  
+  Então as datas aparecem em branco, ou seja, sem eventos, pois não foram cadastradas.
 
 </details>
 
