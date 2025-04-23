@@ -64,6 +64,18 @@
       font-weight: bold;
       margin-top: 15px;
     }
+
+    .btn {
+      background-color: #00a0e4;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+    }
     
     .voltar {
       margin-top: 15px;
@@ -93,10 +105,10 @@
       {% endif %}
       {% if messages %}
         {% for message in messages %}
-          <p style="color: green;">{{ message }}</p>
+          <div class="alert alert-success">{{ message }}</div>
         {% endfor %}
       {% endif %}
-    
+
       <input type="text" name="nome" placeholder="Nome completo" required>
       <input type="email" name="email" placeholder="E-mail" required>
       <input type="password" name="senha" placeholder="Senha" required>
@@ -125,7 +137,6 @@
         <option value="boa-viagem">Boa Viagem</option>
         <option value="santo-amaro">Santo Amaro</option>
         <option value="várzea">Várzea</option>
-        <!-- Adicione os demais bairros conforme sua lista -->
       </select>
     
       <input type="tel" name="telefone" placeholder="Telefone" required>
@@ -138,6 +149,7 @@
       </select>
     
       <button type="submit" class="btn-cadastro">Adicionar aluno</button>
+      <button class="btn" onclick="location.href='{% url 'homeadm' %}'">Voltar ao Painel</button>
     </form>
   </div>
 

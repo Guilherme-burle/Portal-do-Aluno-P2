@@ -112,17 +112,9 @@ def add_aluno(request):
         aluno.save()
 
         messages.success(request, 'Aluno cadastrado com sucesso!')
-        return redirect(reverse("ver"))
+        return render(request, 'add.html')
 
     return render(request, 'add.html')
-
-@login_required
-def excluir_aluno(request, aluno_id):
-    aluno = get_object_or_404(Aluno, id=aluno_id)
-    
-    aluno.delete()
-    messages.success(request, 'Aluno excluído com sucesso!')
-    return redirect('homeadm')
 
 @login_required
 def ver(request):
