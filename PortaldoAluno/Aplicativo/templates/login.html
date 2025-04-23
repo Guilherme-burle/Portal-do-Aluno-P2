@@ -83,14 +83,15 @@
       <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
     </div>
     <h3>Acesse sua conta</h3>
-    <form>
-      <input type="text" placeholder="E-mail ou matrícula" required>
-      <input type="password" placeholder="Senha" required>
-      <button type="submit" class="btn-login">ENTRAR</button>
-    </form>
-    <div class="cadastro">
-      Não tem uma conta? <a href="CADASTROSOLIDARE.html">Cadastre-se aqui</a>
-    </div>
-  </div>
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="username" placeholder="E-mail" required>
+  <input type="password" name="password" placeholder="Senha" required>
+  <button type="submit" class="btn-login">Entrar</button>
+</form>
+<div class="cadastro">
+  Não tem uma conta? <a href="{% url 'cadastro' %}">Cadastre-se aqui</a>
+</div>
+
 </body>
 </html>

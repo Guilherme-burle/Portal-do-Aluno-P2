@@ -33,7 +33,10 @@ def cadastro(request):
         )
         user.save()
 
-        return redirect('login')
+        return render(request, 'cadastro.html', {
+            'mensagem': 'Cadastro realizado com sucesso!',
+            'tipo_mensagem': 'success'
+        })
 
     return render(request, 'cadastro.html')
 

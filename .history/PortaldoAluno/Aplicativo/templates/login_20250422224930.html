@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Home Administrador - Instituto Solidare</title>
+  <title>Login - Instituto Solidare</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -31,7 +31,6 @@
       border-radius: 10px 10px 0 0;
       display: flex;
       justify-content: center;
-      margin: -40px -40px 20px -40px;
     }
 
     .logo img {
@@ -40,10 +39,18 @@
 
     h3 {
       color: #00a0e4;
-      margin-bottom: 30px;
+      margin-top: 20px;
     }
 
-    .btn {
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn-login {
       background-color: #00a0e4;
       color: white;
       border: none;
@@ -52,11 +59,21 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-      margin: 10px 0;
+      margin-top: 10px;
     }
 
-    .btn:hover {
-      background-color: #007bbd;
+    .cadastro {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .cadastro a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .cadastro a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -65,10 +82,16 @@
     <div class="logo">
       <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
     </div>
-    <h3>Painel do Administrador</h3>
-    <button class="btn" onclick="location.href='{% url 'addaluno' %}'">Adicionar Aluno</button>
-    <button class="btn" onclick="location.href='{% url 'excluir_aluno' %}'">Excluir Aluno</button>
-    <button class="btn" onclick="location.href='{% url 'atualizar_aluno' %}'">Atualizar Aluno</button>
-  </div>
+    <h3>Acesse sua conta</h3>
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="username" placeholder="E-mail" required>
+  <input type="password" name="password" placeholder="Senha" required>
+  <button type="submit" class="btn-login">ENTRAR</button>
+</form>
+<div class="cadastro">
+  Não tem uma conta? <a href="{% url 'cadastro' %}">Cadastre-se aqui</a>
+</div>
+
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Home Administrador - Instituto Solidare</title>
+  <title>Cadastro - Instituto Solidare</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -43,7 +43,22 @@
       margin-bottom: 30px;
     }
 
-    .btn {
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .btn-cadastrar {
       background-color: #00a0e4;
       color: white;
       border: none;
@@ -52,11 +67,25 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-      margin: 10px 0;
+      margin-top: 15px;
     }
 
-    .btn:hover {
+    .btn-cadastrar:hover {
       background-color: #007bbd;
+    }
+
+    .login {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .login a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .login a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -65,10 +94,26 @@
     <div class="logo">
       <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
     </div>
-    <h3>Painel do Administrador</h3>
-    <button class="btn" onclick="location.href='{% url 'add' %}'">Adicionar Aluno</button>
-    <button class="btn" onclick="location.href='{% url 'excluir' %}'">Excluir Aluno</button>
-    <button class="btn" onclick="location.href='{% url 'atualizar' %}'">Atualizar Aluno</button>
+    
+    <h3>Crie sua conta</h3>
+
+    <form method="post" action="{% url 'cadastro' %}">
+      {% csrf_token %}
+      <input type="text" name="nome" placeholder="Nome" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="password" name="senha" placeholder="Senha" required>
+      <input type="password" name="confirmarSenha" placeholder="Confirmar Senha" required>
+      
+      <label for="is_admin">
+        <input type="checkbox" name="is_admin" id="is_admin"> Administrador
+      </label>
+
+      <button type="submit" class="btn-cadastrar">Cadastrar</button>
+    </form>
+
+    <div class="login">
+      Já tem uma conta? <a href="{% url 'login' %}">Faça login</a>
+    </div>
   </div>
 </body>
 </html>

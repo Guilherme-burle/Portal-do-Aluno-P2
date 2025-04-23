@@ -11,7 +11,7 @@ class Cadastro(models.Model):
 class Aluno(models.Model):
     nome = models.CharField(max_length=100)
     idade = models.IntegerField()
-    
+
     CURSOS = [
         ('programacao', 'Programação'),
         ('mecanica', 'Mecânica'),
@@ -23,5 +23,3 @@ class Aluno(models.Model):
 
     def __str__(self):
         return self.nome
-    
-   

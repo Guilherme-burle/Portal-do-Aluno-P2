@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Adicionar Aluno - Instituto Solidare</title>
+  <title>Cadastro - Instituto Solidare</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,7 +22,7 @@
       border: 2px solid #00a0e4;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
-      width: 400px;
+      width: 350px;
     }
 
     .logo {
@@ -40,10 +40,10 @@
 
     h3 {
       color: #00a0e4;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
-    input, select {
+    input {
       width: 100%;
       padding: 12px;
       margin: 10px 0;
@@ -51,7 +51,14 @@
       border-radius: 5px;
     }
 
-    .btn-submit {
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .btn-cadastrar {
       background-color: #00a0e4;
       color: white;
       border: none;
@@ -60,11 +67,25 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
-    .btn-submit:hover {
+    .btn-cadastrar:hover {
       background-color: #007bbd;
+    }
+
+    .login {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .login a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .login a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -73,20 +94,25 @@
     <div class="logo">
       <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
     </div>
-    <h3>Adicionar Novo Aluno</h3>
-    <form method="post">
-        {% csrf_token %}
-        <input type="text" name="nome" placeholder="Nome completo" required>
-        <input type="number" name="idade" placeholder="Idade" required>
-        <select name="curso" required>
-          <option value="" disabled selected>Curso desejado</option>
-          <option value="programacao">Programação</option>
-          <option value="mecanica">Mecânica</option>
-          <option value="praticas">Práticas Administrativas</option>
-        </select>
-        <input type="text" name="endereco" placeholder="Endereço" required>
-        <button type="submit" class="btn-submit">Adicionar Aluno</button>
-      </form>
+    
+    <h3>Crie sua conta</h3>
+
+    <form method="post" action="{% url 'cadastro' %}">
+      {% csrf_token %}
+      <input type="text" name="nome" placeholder="Nome" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="password" name="senha" placeholder="Senha" required>
+      
+      <label for="is_admin">
+        <input type="checkbox" name="is_admin" id="is_admin"> Administrador
+      </label>
+
+      <button type="submit" class="btn-cadastrar">Cadastrar</button>
+    </form>
+
+    <div class="login">
+      Já tem uma conta? <a href="{% url 'login' %}">Faça login</a>
+    </div>
   </div>
 </body>
 </html>
