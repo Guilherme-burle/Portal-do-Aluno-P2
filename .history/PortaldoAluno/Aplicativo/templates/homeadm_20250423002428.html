@@ -68,6 +68,7 @@
     <h3>Painel do Administrador</h3>
     <button class="btn" onclick="location.href='{% url 'add' %}'">Adicionar Aluno</button>
     
+    <!-- Iterando sobre a lista de alunos para gerar links dinâmicos -->
     {% for aluno in alunos %}
       <button class="btn" onclick="location.href='{% url 'excluir' aluno.id %}'">Excluir Aluno {{ aluno.id }}</button>
     {% endfor %}

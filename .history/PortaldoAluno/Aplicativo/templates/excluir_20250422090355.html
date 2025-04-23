@@ -94,12 +94,17 @@
               Idade: {{ aluno.idade }}<br>
               Curso: {{ aluno.get_curso_display }}
             </div>
-            <a href="{% url 'excluir' aluno.id %}" class="btn-excluir">Excluir Aluno</a>
+            <form method="post">
+              {% csrf_token %}
+              <input type="hidden" name="aluno_id" value="{{ aluno.id }}">
+              <button type="submit" class="btn-excluir">Excluir Aluno</button>
+            </form>
           </div>
         {% endfor %}
       {% else %}
         <p class="mensagem">Nenhum aluno cadastrado</p>
       {% endif %}
     </div>
-</body>
+  </body>
+  
 </html>

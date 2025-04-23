@@ -8,8 +8,11 @@ def home(request):
     return render(request, 'home.html')
 
 @login_required
-def home_adm(request):
-    alunos = Aluno.objects.all()  
+from django.shortcuts import render
+from .models import Aluno
+
+def home_administrador(request):
+    alunos = Aluno.objects.all()  # Ou use o filtro necessário
     return render(request, 'homeadm.html', {'alunos': alunos})
 
 
@@ -92,9 +95,11 @@ def add_aluno(request):
     return render(request, 'add.html')
 
 @login_required
-def excluir_aluno(request, aluno_id):
-    aluno = get_object_or_404(Aluno, id=aluno_id)
-    
-    aluno.delete()
-    messages.success(request, 'Aluno excluído com sucesso!')
-    return redirect('homeadm')
+def excluir_aluno(request, aluno_id=None):
+    if aluno_id:
+        aluno = get_object_or_404(Aluno, id=aluno_id)
+        aluno.delete()
+        return redirect('excluir_aluno')
+
+    alunos = Aluno.objects.all()
+    return render(request, 'excluirAluno.html', {'alunos': alunos})

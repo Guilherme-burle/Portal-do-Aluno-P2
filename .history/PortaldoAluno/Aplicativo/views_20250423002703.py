@@ -8,7 +8,7 @@ def home(request):
     return render(request, 'home.html')
 
 @login_required
-def home_adm(request):
+def home_administrador(request):
     alunos = Aluno.objects.all()  
     return render(request, 'homeadm.html', {'alunos': alunos})
 
@@ -95,6 +95,8 @@ def add_aluno(request):
 def excluir_aluno(request, aluno_id):
     aluno = get_object_or_404(Aluno, id=aluno_id)
     
+    # Exclui o aluno
     aluno.delete()
-    messages.success(request, 'Aluno excluído com sucesso!')
+    
+    # Após a exclusão, redireciona para a página de administração
     return redirect('homeadm')

@@ -94,6 +94,7 @@
               Idade: {{ aluno.idade }}<br>
               Curso: {{ aluno.get_curso_display }}
             </div>
+            <!-- Agora, utilizando a URL para exclusão com o aluno.id -->
             <a href="{% url 'excluir' aluno.id %}" class="btn-excluir">Excluir Aluno</a>
           </div>
         {% endfor %}

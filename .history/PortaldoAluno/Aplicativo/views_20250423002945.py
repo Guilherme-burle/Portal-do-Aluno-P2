@@ -8,7 +8,7 @@ def home(request):
     return render(request, 'home.html')
 
 @login_required
-def home_adm(request):
+def home_administrador(request):
     alunos = Aluno.objects.all()  
     return render(request, 'homeadm.html', {'alunos': alunos})
 

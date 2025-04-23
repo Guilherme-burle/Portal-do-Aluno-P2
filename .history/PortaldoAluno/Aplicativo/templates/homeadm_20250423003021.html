@@ -71,7 +71,14 @@
     {% for aluno in alunos %}
       <button class="btn" onclick="location.href='{% url 'excluir' aluno.id %}'">Excluir Aluno {{ aluno.id }}</button>
     {% endfor %}
-    
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
     <button class="btn" onclick="location.href='{% url 'atualizar' %}'">Atualizar Aluno</button>
   </div>
 </body>
