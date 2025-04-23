@@ -67,7 +67,15 @@
     </div>
     <h3>Painel do Administrador</h3>
     <button class="btn" onclick="location.href='{% url 'add' %}'">Adicionar Aluno</button>
-    <button class="btn" onclick="location.href='{% url 'excluir_aluno' %}'">Excluir Aluno</button>
+    {% if aluno.id %}
+  <button class="btn" onclick="location.href='{% url 'excluir' aluno.id %}'">Excluir Aluno {{ aluno.id }}</button>
+{% else %}
+  <span>Aluno sem ID</span>
+{% endif %}
+
+    <button class="btn" onclick="location.href='{% url 'excluir' aluno.id %}'">Excluir Aluno {{ aluno.id }}</button>
+    
+    <button class="btn" onclick="location.href='{% url 'atualizar' %}'">Atualizar Aluno</button>
   </div>
 </body>
 </html>
