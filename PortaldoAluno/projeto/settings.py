@@ -34,7 +34,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'PortaldoAluno.projeto.urls'
+ROOT_URLCONF = 'Projeto.urls'
 
 TEMPLATES = [
     {
@@ -51,7 +51,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'PortaldoAluno.projeto.wsgi.application'
+WSGI_APPLICATION = 'Projeto.wsgi.application'
 
 DATABASES = {
     'default': {

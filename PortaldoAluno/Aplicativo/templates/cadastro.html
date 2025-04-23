@@ -87,6 +87,23 @@
     .login a:hover {
       text-decoration: underline;
     }
+
+    /* Ajuste para o checkbox e o label */
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 5px; /* Menor espaço entre o checkbox e o texto */
+      margin-top: 10px;
+      justify-content: flex-start; /* Certifique-se de que estão alinhados à esquerda */
+    }
+
+    .checkbox-container input {
+      margin: 0; /* Remover qualquer margem extra */
+    }
+
+    .checkbox-container label {
+      margin: 0; /* Garantir que o label não tenha margem extra */
+    }
   </style>
 </head>
 <body>
@@ -103,7 +120,7 @@
       <input type="email" name="email" placeholder="E-mail" required>
       <input type="password" name="senha" placeholder="Senha" required>
     
-      <div style="display: flex; align-items: center; margin-top: 10px; gap: 8px;">
+      <div class="checkbox-container">
         <input type="checkbox" name="is_admin" id="is_admin">
         <label for="is_admin">Administrador</label>
       </div>

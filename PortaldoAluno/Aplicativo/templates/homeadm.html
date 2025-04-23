@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -67,9 +67,11 @@
     </div> 
     <h3>Painel do Administrador</h3>
     {% if user.is_authenticated %}
-  <p>Bem-vindo, {{ user.first_name|default:"usuário" }}!</p>
-  <button class="btn" onclick="location.href='{% url 'logout' %}'">Logout</button>
-{% endif %}
+    <p>Bem-vindo, {{ user.first_name|default:"usuário" }}!</p> 
+    <button class="btn" onclick="location.href='{% url 'ver' %}'">Gerenciar Alunos Cadastrados</button>
+    <button class="btn" onclick="location.href='{% url 'add' %}'">Cadastrar Alunos</button>
+    <button class="btn" onclick="location.href='{% url 'logout' %}'">Logout</button>
+    {% endif %}
   </div>
 </body>
 </html>

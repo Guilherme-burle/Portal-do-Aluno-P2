@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'PortaldoAluno'))
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'PortaldoAluno.projeto.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Projeto.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

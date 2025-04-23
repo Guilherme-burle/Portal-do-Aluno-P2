@@ -3,7 +3,10 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
 from .models import Aluno
+from django.contrib import messages
+from django.urls import reverse
 from .decorators import login_required
+from django.contrib.auth.hashers import make_password
 
 def home(request):
     return render(request, 'home.html')
@@ -12,7 +15,6 @@ def home(request):
 def home_adm(request):
     alunos = Aluno.objects.all()  
     return render(request, 'homeadm.html', {'alunos': alunos})
-
 
 def cadastro(request):
     if request.method == 'POST':
@@ -71,30 +73,46 @@ def login(request):
     
     return render(request, 'login.html')
 
-
 def logout_view(request):
     logout(request)
     return redirect('home')  
-
 
 @login_required
 def add_aluno(request):
     if request.method == 'POST':
         nome = request.POST.get('nome')
-        idade = request.POST.get('idade')
-        curso = request.POST.get('curso')
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        data_nascimento = request.POST.get('data_nascimento')
+        escolaridade = request.POST.get('escolaridade')
+        turno = request.POST.get('turno')
+        escola = request.POST.get('escola')
         endereco = request.POST.get('endereco')
+        bairro = request.POST.get('bairro')
+        telefone = request.POST.get('telefone')
+        curso = request.POST.get('curso')
 
-        if not all([nome, idade, curso, endereco]):
+        if not all([nome, email, senha, data_nascimento, escolaridade, turno, escola, endereco, bairro, telefone, curso]):
             return render(request, 'add.html', {'erro': 'Todos os campos são obrigatórios'})
 
-        Aluno.objects.create(
+        aluno = Aluno.objects.create(
             nome=nome,
-            idade=idade,
+            email=email,
+            senha=make_password(senha),  # proteção!
+            data_nascimento=data_nascimento,
+            escolaridade=escolaridade,
+            turno=turno,
+            escola=escola,
+            endereco=endereco,
+            bairro=bairro,
+            telefone=telefone,
             curso=curso,
-            endereco=endereco
         )
-        return redirect('homeadm')
+
+        aluno.save()
+
+        messages.success(request, 'Aluno cadastrado com sucesso!')
+        return redirect(reverse("ver"))
 
     return render(request, 'add.html')
 
@@ -105,3 +123,9 @@ def excluir_aluno(request, aluno_id):
     aluno.delete()
     messages.success(request, 'Aluno excluído com sucesso!')
     return redirect('homeadm')
+
+@login_required
+def ver(request):
+    alunos = Aluno.objects.all()
+
+    return render(request, 'ver.html', {'alunos': alunos})
