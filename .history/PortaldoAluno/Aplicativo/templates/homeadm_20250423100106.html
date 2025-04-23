@@ -67,9 +67,12 @@
     </div> 
     <h3>Painel do Administrador</h3>
     {% if user.is_authenticated %}
-  <p>Bem-vindo, {{ user.first_name|default:"usuário" }}!</p>
+  <p>Bem-vindo, {{ user.first_name }}!</p>
   <button class="btn" onclick="location.href='{% url 'logout' %}'">Logout</button>
 {% endif %}
+
+    <button class="btn" onclick="location.href='{% url 'add' %}'">Adicionar Aluno</button>
+    <button class="btn" onclick="location.href='{% url 'excluir_aluno' %}'">Excluir Aluno</button>
   </div>
 </body>
 </html>

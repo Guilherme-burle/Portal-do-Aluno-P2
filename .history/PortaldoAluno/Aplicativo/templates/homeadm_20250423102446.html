@@ -67,7 +67,7 @@
     </div> 
     <h3>Painel do Administrador</h3>
     {% if user.is_authenticated %}
-  <p>Bem-vindo, {{ user.first_name|default:"usuário" }}!</p>
+  <p>Bem-vindo, </p>
   <button class="btn" onclick="location.href='{% url 'logout' %}'">Logout</button>
 {% endif %}
   </div>

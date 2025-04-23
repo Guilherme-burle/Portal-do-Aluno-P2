@@ -34,7 +34,7 @@ def cadastro(request):
                 username=email,  
                 email=email,
                 password=senha,
-                first_name=nome,  
+                
                 is_superuser=is_admin,
                 is_staff=is_admin
             )

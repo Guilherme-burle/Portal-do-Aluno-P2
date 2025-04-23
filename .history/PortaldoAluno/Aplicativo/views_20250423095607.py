@@ -1,4 +1,3 @@
-from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
@@ -34,7 +33,6 @@ def cadastro(request):
                 username=email,  
                 email=email,
                 password=senha,
-                first_name=nome,  
                 is_superuser=is_admin,
                 is_staff=is_admin
             )
@@ -71,6 +69,8 @@ def login(request):
     
     return render(request, 'login.html')
 
+from django.contrib.auth import logout
+from django.shortcuts import redirect
 
 def logout_view(request):
     logout(request)

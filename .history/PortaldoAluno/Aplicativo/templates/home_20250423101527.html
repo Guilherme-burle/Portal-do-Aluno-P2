@@ -168,7 +168,7 @@
     <div class="logo">
       <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
     </div>
-  
+
     <nav>
       <ul>
         <li><a href="#">Início</a></li>
@@ -181,21 +181,23 @@
         <li><a href="#">Contato</a></li>
       </ul>
     </nav>
-  
+
     <div class="auth-buttons">
       {% if user.is_authenticated %}
+        <span style="color: white; align-self: center;">Bem-vindo, {{ user.get_full_name }}</span>
         <a href="{% url 'logout' %}">Logout</a>
       {% else %}
-        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'login' %}">Login</a>   
         <a href="{% url 'cadastro' %}">Cadastro</a>
       {% endif %}
     </div>
+    
   </header>
-  
 
+  
 {% if user.is_authenticated %}
 <h2 style="text-align: center; color: #00a0e4; margin-top: 20px;">
-  Bem-vindo(a),  {{ user.first_name|default:"usuário" }}!
+  Bem-vindo, {{ user.get_full_name|default:user.username }}!
 </h2>
 {% endif %}
 
