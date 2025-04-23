@@ -121,3 +121,9 @@ def ver(request):
     alunos = Aluno.objects.all()
 
     return render(request, 'ver.html', {'alunos': alunos})
+
+@login_required
+def deletar_alunos(request, aluno_id):
+    aluno = get_object_or_404(Aluno, id=aluno_id)
+    aluno.delete()
+    return redirect(request.META.get('HTTP_REFERER', 'ver'))
