@@ -9,7 +9,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 1. [Guilherme Burle Medeiros](https://github.com/Guilherme-burle)  
 2. [Pedro Valença Ferraz](https://github.com/PedroFerraz87)  
-3. [Rafael de Lima Cavalcanti Loyo](https://github.com/rafaelcf29)  
+3. [Rafael de Lima Cavalcanti Loyo Fernandes](https://github.com/rafaelcf29)  
 4. [Gabriel França de Albuquerque Pernambuco](https://github.com/gabrielfranca10)  
 5. [Caio Cabral da Mata Buonora](https://github.com/caiobuonora)  
 6. [Victor de Matos Vilela](https://github.com/VI170105)  
