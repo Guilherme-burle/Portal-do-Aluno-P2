@@ -1,7 +1,9 @@
+#!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
 
+# Adiciona a pasta "PortaldoAluno" ao sys.path
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(BASE_DIR, 'PortaldoAluno'))
 
