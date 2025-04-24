@@ -9,10 +9,6 @@
       background-color: #f5f8fa;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
 
     .container {
@@ -23,6 +19,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
       width: 350px;
+      margin-top: -180px;
     }
 
     .logo {
@@ -44,7 +41,7 @@
     }
 
     input {
-      width: 100%;
+      width: 90%;
       padding: 12px;
       margin: 10px 0;
       border: 1px solid #ccc;
@@ -56,6 +53,7 @@
       text-align: left;
       margin-top: 10px;
       color: #333;
+      color: #00a0e4
     }
 
     .btn-cadastrar {
@@ -88,48 +86,75 @@
       text-decoration: underline;
     }
 
-    /* Ajuste para o checkbox e o label */
     .checkbox-container {
       display: flex;
       align-items: center;
-      gap: 5px; /* Menor espaço entre o checkbox e o texto */
+      gap: 5px; 
       margin-top: 10px;
-      justify-content: flex-start; /* Certifique-se de que estão alinhados à esquerda */
+      justify-content: flex-start; 
     }
 
     .checkbox-container input {
-      margin: 0; /* Remover qualquer margem extra */
+      margin: 0; 
     }
 
     .checkbox-container label {
-      margin: 0; /* Garantir que o label não tenha margem extra */
+      margin: 0;
     }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+    }    
+
+    header {
+      background-color: #00a0e4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .main-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 100px); 
+      padding-top: 20px;
+    }
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">
-      <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Alvo Certo">
-    </div>
-   
-    <h3>Crie sua conta</h3>
 
-    <form method="post">
-      {% csrf_token %}
-      <input type="text" name="nome" placeholder="Nome" required>
-      <input type="email" name="email" placeholder="E-mail" required>
-      <input type="password" name="senha" placeholder="Senha" required>
-   
-      <div class="checkbox-container">
-        <input type="checkbox" name="is_admin" id="is_admin">
-        <label for="is_admin">Administrador</label>
+  <header>
+    <div class="header-content">
+      <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Alvo Certo" style="height: 60px;">
+      <h1>Cadastro</h1>
+    </div>
+  </header>
+  <div class="main-content">
+    <div class="container">
+    
+      <h3>Crie sua conta</h3>
+
+      <form method="post">
+        {% csrf_token %}
+        <input type="text" name="nome" placeholder="Nome" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="password" name="senha" placeholder="Senha" required>
+    
+        <div class="checkbox-container">
+          <input type="checkbox" name="is_admin" id="is_admin">
+          <label for="is_admin">Administrador</label>
+        </div>
+    
+        <button type="submit" class="btn-cadastrar">Cadastrar</button>
+      </form>
+    
+      <div class="login">
+        Já tem uma conta? <a href="{% url 'login' %}">Faça login</a>
       </div>
-   
-      <button type="submit" class="btn-cadastrar">Cadastrar</button>
-    </form>
-   
-    <div class="login">
-      Já tem uma conta? <a href="{% url 'login' %}">Faça login</a>
     </div>
   </div>
 </body>

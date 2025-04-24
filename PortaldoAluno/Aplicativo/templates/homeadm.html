@@ -70,7 +70,7 @@
     <p>Bem-vindo, {{ user.first_name|default:"usuário" }}!</p>
     <button class="btn" onclick="location.href='{% url 'ver' %}'">Gerenciar Alunos Cadastrados</button>
     <button class="btn" onclick="location.href='{% url 'add' %}'">Cadastrar Alunos</button>
-    <button class="btn" onclick="location.href='{% url 'logout' %}'">Logout</button>
+    <button class="btn" onclick="location.href='{% url 'logout' %}'">Sair</button>
     {% endif %}
   </div>
 </body>
