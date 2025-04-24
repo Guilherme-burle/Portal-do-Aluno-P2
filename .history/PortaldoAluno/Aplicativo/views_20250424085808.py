@@ -153,6 +153,8 @@ def editar_alunos(request, aluno_id):
 
         if alterado:
             aluno.nome = nome
+            aluno.email = email
+            aluno.senha = senha
             aluno.data_nascimento = data_nascimento
             aluno.escolaridade = escolaridade
             aluno.turno = turno

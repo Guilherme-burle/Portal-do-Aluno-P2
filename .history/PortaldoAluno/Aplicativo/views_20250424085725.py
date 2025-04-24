@@ -90,11 +90,13 @@ def add_aluno(request):
         telefone = request.POST.get('telefone')
         curso = request.POST.get('curso')
 
-        if not all([nome, data_nascimento, escolaridade, turno, escola, endereco, bairro, telefone, curso]):
+        if not all([nome, email, senha, data_nascimento, escolaridade, turno, escola, endereco, bairro, telefone, curso]):
             return render(request, 'add.html', {'erro': 'Todos os campos são obrigatórios'})
 
         aluno = Aluno.objects.create(
             nome=nome,
+            email=email,
+            senha=make_password(senha), 
             data_nascimento=data_nascimento,
             escolaridade=escolaridade,
             turno=turno,
@@ -130,6 +132,8 @@ def editar_alunos(request, aluno_id):
 
     if request.method == 'POST':
         nome = request.POST.get('nome')
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
         data_nascimento = request.POST.get('data_nascimento')
         escolaridade = request.POST.get('escolaridade')
         turno = request.POST.get('turno')
@@ -141,6 +145,8 @@ def editar_alunos(request, aluno_id):
 
         alterado = (
             nome != aluno.nome or
+            email != aluno.email or
+            senha != aluno.senha or
             data_nascimento != str(aluno.data_nascimento) or
             escolaridade != aluno.escolaridade or
             turno != aluno.turno or
@@ -153,6 +159,8 @@ def editar_alunos(request, aluno_id):
 
         if alterado:
             aluno.nome = nome
+            aluno.email = email
+            aluno.senha = senha
             aluno.data_nascimento = data_nascimento
             aluno.escolaridade = escolaridade
             aluno.turno = turno
