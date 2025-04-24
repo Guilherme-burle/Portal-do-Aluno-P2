@@ -137,7 +137,11 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 ---
 
 ## Relato Pair Programming:
+  Trabalhamos em duplas e utilizamos o recurso de compartilhamento de tela durante as reuniões para atender a todos os requisitos do projeto. Essa abordagem permitiu uma melhor gestão do tempo, garantindo que as entregas fossem realizadas de maneira eficiente e dentro dos prazos estabelecidos. 
 
+  **Divisao de Tarefas:** Durante cada reunião, organizávamos a divisão de tarefas formando duplas e definindo as responsabilidades de cada uma, o que ajudava a agilizar o andamento das entregas. As decisões eram registradas em um grupo no WhatsApp, garantindo que todos estivessem cientes das atividades e prazos, evitando atrasos.
+
+  **Metodologia de Trabalho:** Realizávamos nossas reuniões, tanto em grupo quanto em duplas, por meio do Google Meet, o que facilitava a participação ativa de todos os integrantes. O compartilhamento de tela foi essencial para promover a colaboração de todos durante a execução das tarefas, permitindo que todas as atividades fossem desenvolvidas de forma conjunta e com o conhecimento coletivo do grupo.
 
 ---
 
