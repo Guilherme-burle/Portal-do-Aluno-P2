@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Cadastro - Alvo Certo</title>
+  <title>Cadastro - Instituto Solidare</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -109,9 +109,9 @@
 <body>
   <div class="container">
     <div class="logo">
-      <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Alvo Certo">
+      <img src="https://institutosolidare.org.br/wp-content/uploads/2023/03/Instituto-Solidare.webp" alt="Logo Instituto Solidare">
     </div>
-   
+    
     <h3>Crie sua conta</h3>
 
     <form method="post">
@@ -119,15 +119,15 @@
       <input type="text" name="nome" placeholder="Nome" required>
       <input type="email" name="email" placeholder="E-mail" required>
       <input type="password" name="senha" placeholder="Senha" required>
-   
+    
       <div class="checkbox-container">
         <input type="checkbox" name="is_admin" id="is_admin">
         <label for="is_admin">Administrador</label>
       </div>
-   
+    
       <button type="submit" class="btn-cadastrar">Cadastrar</button>
     </form>
-   
+    
     <div class="login">
       Já tem uma conta? <a href="{% url 'login' %}">Faça login</a>
     </div>
