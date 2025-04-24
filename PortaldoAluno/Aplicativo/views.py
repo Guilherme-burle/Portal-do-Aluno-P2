@@ -127,3 +127,54 @@ def deletar_alunos(request, aluno_id):
     aluno = get_object_or_404(Aluno, id=aluno_id)
     aluno.delete()
     return redirect(request.META.get('HTTP_REFERER', 'ver'))
+
+@login_required
+def editar_alunos(request, aluno_id):
+    aluno = get_object_or_404(Aluno, id=aluno_id)
+
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        data_nascimento = request.POST.get('data_nascimento')
+        escolaridade = request.POST.get('escolaridade')
+        turno = request.POST.get('turno')
+        escola = request.POST.get('escola')
+        endereco = request.POST.get('endereco')
+        bairro = request.POST.get('bairro')
+        telefone = request.POST.get('telefone')
+        curso = request.POST.get('curso')
+
+        alterado = (
+            nome != aluno.nome or
+            email != aluno.email or
+            senha != aluno.senha or
+            data_nascimento != str(aluno.data_nascimento) or
+            escolaridade != aluno.escolaridade or
+            turno != aluno.turno or
+            escola != aluno.escola or
+            endereco != aluno.endereco or
+            bairro != aluno.bairro or
+            telefone != aluno.telefone or
+            curso != aluno.curso
+        )
+
+        if alterado:
+            aluno.nome = nome
+            aluno.email = email
+            aluno.senha = senha
+            aluno.data_nascimento = data_nascimento
+            aluno.escolaridade = escolaridade
+            aluno.turno = turno
+            aluno.escola = escola
+            aluno.endereco = endereco
+            aluno.bairro = bairro
+            aluno.telefone = telefone
+            aluno.curso = curso
+            aluno.save()
+            messages.success(request, 'Informações atualizadas com sucesso!')
+        else:
+            messages.error(request, 'Você precisa alterar alguma informação.')
+
+    return render(request, 'editar.html', {'aluno': aluno})
+    

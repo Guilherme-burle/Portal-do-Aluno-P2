@@ -121,57 +121,56 @@
     <h3>Cadastro de Aluno</h3>
     <form method="POST">
     {% csrf_token %}
-    {% if erro %}
-        <div class="alert alert-error">{{ erro }}</div>
-    {% endif %}
     {% if messages %}
-      {% for message in messages %}
-          <div class="alert alert-success">{{ message }}</div>
-      {% endfor %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags == 'error' %}alert-error{% else %}alert-success{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
     {% endif %}
-
-      <input type="text" name="nome" placeholder="Nome completo" required>
-      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="text" name="nome" placeholder="Nome completo" value="{{ aluno.nome }}" required>
+      <input type="email" name="email" placeholder="E-mail" value="{{ aluno.email }}" required>
       <input type="password" name="senha" placeholder="Senha" required>
-      <input type="date" name="data_nascimento" placeholder="Data de nascimento" required>
+      <input type="date" name="data_nascimento" value="{{ aluno.data_nascimento|date:'Y-m-d' }}" required>
    
       <select name="escolaridade" required>
         <option value="">Escolaridade</option>
-        <option value="medio-incompleto">Ensino médio incompleto</option>
-        <option value="medio-completo">Ensino médio completo</option>
-        <option value="superior-andamento">Ensino superior em andamento</option>
+        <option value="medio-incompleto" {% if aluno.escolaridade == "medio-incompleto" %}selected{% endif %}>Ensino médio incompleto</option>
+        <option value="medio-completo" {% if aluno.escolaridade == "medio-completo" %}selected{% endif %}>Ensino médio completo</option>
+        <option value="superior-andamento" {% if aluno.escolaridade == "superior-andamento" %}selected{% endif %}>Ensino superior em andamento</option>
       </select>
-   
+
       <select name="turno" required>
         <option value="">Turno</option>
-        <option value="manha">Manhã</option>
-        <option value="tarde">Tarde</option>
-        <option value="noite">Noite</option>
+        <option value="manha" {% if aluno.turno == "manha" %}selected{% endif %}>Manhã</option>
+        <option value="tarde" {% if aluno.turno == "tarde" %}selected{% endif %}>Tarde</option>
+        <option value="noite" {% if aluno.turno == "noite" %}selected{% endif %}>Noite</option>
       </select>
    
-      <input type="text" name="escola" placeholder="Nome da escola" required>
-      <input type="text" name="endereco" placeholder="Endereço completo" required>
-   
+      <input type="text" name="escola" placeholder="Nome da escola" value="{{ aluno.escola }}" required>
+      <input type="text" name="endereco" placeholder="Endereço completo" value="{{ aluno.endereco }}" required>
+
       <select name="bairro" required>
         <option value="">Bairro</option>
-        <option value="aflitos">Aflitos</option>
-        <option value="boa-viagem">Boa Viagem</option>
-        <option value="santo-amaro">Santo Amaro</option>
-        <option value="várzea">Várzea</option>
+        <option value="aflitos" {% if aluno.bairro == "aflitos" %}selected{% endif %}>Aflitos</option>
+        <option value="boa-viagem" {% if aluno.bairro == "boa-viagem" %}selected{% endif %}>Boa Viagem</option>
+        <option value="santo-amaro" {% if aluno.bairro == "santo-amaro" %}selected{% endif %}>Santo Amaro</option>
+        <option value="várzea" {% if aluno.bairro == "várzea" %}selected{% endif %}>Várzea</option>
       </select>
-   
-      <input type="tel" name="telefone" placeholder="Telefone" required>
-   
+
+      <input type="tel" name="telefone" placeholder="Telefone" value="{{ aluno.telefone }}" required>
+
       <select name="curso" required>
-        <option value="">Curso desejado</option>
-        <option value="programacao">Programação</option>
-        <option value="mecanica">Mecânica</option>
-        <option value="praticas-administrativas">Práticas Administrativas</option>
+        <option value="">Curso</option>
+        <option value="programacao" {% if aluno.curso == "programacao" %}selected{% endif %}>Programação</option>
+        <option value="mecanica" {% if aluno.curso == "mecanica" %}selected{% endif %}>Mecânica</option>
+        <option value="praticas-administrativas" {% if aluno.curso == "praticas-administrativas" %}selected{% endif %}>Práticas Administrativas</option>
       </select>
    
-      <button type="submit" class="btn-cadastro">Adicionar aluno</button>
-      <button class="btn" onclick="location.href='{% url 'homeadm' %}'">Voltar ao Painel</button>
+      <button type="submit" class="btn-cadastro">Salvar mudanças</button>
     </form>
+    <button class="btn" onclick="location.href='{% url 'ver' %}'">Voltar aos alunos cadastrados</button>
+    <button class="btn" onclick="location.href='{% url 'homeadm' %}'">Voltar ao Painel</button>
   </div>
 
   <script>
