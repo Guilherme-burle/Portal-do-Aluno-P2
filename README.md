@@ -54,7 +54,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário favorável 2:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Gerenciar alunos” e seleciona “Atualizar” <br>
+  Quando acessa a aba “Gerenciar alunos” e seleciona “Editar” <br>
   Então os dados do aluno escolhido são exibidos para edição.
 
 - **Cenário favorável 3:**  
