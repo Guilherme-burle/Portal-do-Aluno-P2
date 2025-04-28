@@ -151,8 +151,8 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 ---
 ## Screencasts
-- [Sreencast protótipo Lo-Fi](https://youtu.be/hD8LePoT_Wk)
-- [Screencast Portal do Aluno](https://youtu.be/MeUWsWJPRtE?feature=shared)
+- [Sreencast Figma Lo-Fi](https://youtu.be/hD8LePoT_Wk)
+- [Screencast site portal do aluno](https://youtu.be/MeUWsWJPRtE?feature=shared)
 
 ---
 
