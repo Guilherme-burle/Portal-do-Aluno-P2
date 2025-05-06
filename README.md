@@ -64,7 +64,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário desfavorável 1:**  
   Dado que o administrador está logado  
-  Quando acessa a aba “Atualizar alunos”  
+  Quando acessa a aba “Gerenciar alunos”  
   Então nenhum aluno aparece pois ainda não há alunos cadastrados.
 
 </details>
