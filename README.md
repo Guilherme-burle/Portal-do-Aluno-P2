@@ -105,7 +105,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - **Cenário desfavorável 2:**  
   Dado que o aluno está logado  
   Quando acessa a aba “Calendário”  
-  Então as datas aparecem em branco, ou seja, sem eventos, pois não foram cadastradas.
+  Então as datas aparecem em branco, ou seja, sem eventos, pois ainda não foram cadastrados.
 
 </details>
 
@@ -127,7 +127,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - **Cenário desfavorável 1:**  
   Dado que o aluno está logado  
   Quando acessa a aba “Desempenho e Frequência”  
-  Então os campos aparecem em branco pois não foram preenchidos ainda.
+  Então os campos aparecem em branco, pois não foram preenchidos ainda.
 
 </details>
 
