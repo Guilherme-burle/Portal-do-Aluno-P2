@@ -64,7 +64,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário desfavorável 1:**  
   Dado que o administrador está logado  
-  Quando acessa a aba “Atualizar alunos”  
+  Quando acessa a aba “Gerenciar alunos”  
   Então nenhum aluno aparece pois ainda não há alunos cadastrados.
 
 </details>
@@ -105,7 +105,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - **Cenário desfavorável 2:**  
   Dado que o aluno está logado  
   Quando acessa a aba “Calendário”  
-  Então as datas aparecem em branco, ou seja, sem eventos, pois não foram cadastradas.
+  Então as datas aparecem em branco, ou seja, sem eventos, pois ainda não foram cadastrados.
 
 </details>
 
@@ -127,7 +127,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - **Cenário desfavorável 1:**  
   Dado que o aluno está logado  
   Quando acessa a aba “Desempenho e Frequência”  
-  Então os campos aparecem em branco pois não foram preenchidos ainda.
+  Então os campos aparecem em branco, pois não foram preenchidos ainda.
 
 </details>
 
@@ -137,17 +137,22 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 ---
 
 ## Relato Pair Programming:
+  Trabalhamos em duplas e utilizamos o recurso de compartilhamento de tela durante as reuniões para atender a todos os requisitos do projeto. Essa abordagem permitiu uma melhor gestão do tempo, garantindo que as entregas fossem realizadas de maneira eficiente e dentro dos prazos estabelecidos. 
 
+  **Divisao de Tarefas:** Durante cada reunião, organizávamos a divisão de tarefas formando duplas e definindo as responsabilidades de cada uma, o que ajudava a agilizar o andamento das entregas. As decisões eram registradas em um grupo no WhatsApp, garantindo que todos estivessem cientes das atividades e prazos, evitando atrasos. Rafael e Caio se reuniram no Google Meet para fazer os códigos de front-end em HTML e CSS, e Pedro e Luca se reuniram para criar o banco de dados e funções do projeto, por exemplo.
+
+  **Metodologia de Trabalho:** Realizávamos nossas reuniões, tanto em grupo quanto em duplas, por meio do Google Meet, o que facilitava a participação ativa de todos os integrantes. O compartilhamento de tela foi essencial para promover a colaboração de todos durante a execução das tarefas, permitindo que todas as atividades fossem desenvolvidas de forma conjunta e com o conhecimento coletivo do grupo.
 
 ---
 
 ## Issue / Bugtracker:
-![image](https://github.com/user-attachments/assets/029987bb-12a3-4aa8-9940-f5319837ef98)
+![image](https://github.com/user-attachments/assets/a20ce089-9de6-47ab-a92e-c4399ea83196)
+
 
 ---
 ## Screencasts
-- [Sreencast protótipo Lo-Fi]()
-- [Screencast Portal do Aluno]()
+- [Sreencast Figma Lo-Fi](https://youtu.be/hD8LePoT_Wk)
+- [Screencast site portal do aluno](https://youtu.be/MeUWsWJPRtE?feature=shared)
 
 ---
 
@@ -158,4 +163,4 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - [Site](https://sites.google.com/d/1QneHjgrhPjpQ_i9iDOVrf8Ivn7McXcIN/p/1fAGUYkQG2JxVmydQqaz1o78MrP8PPQCt/edit)
 - [Figma](https://www.figma.com/design/fahGccQiZEC5xWfqc5brNX/Untitled?m=auto&t=6C6LfIGmLXlI1Yj5-6)
 - [Diagrama](https://miro.com/app/board/uXjVI-xQymA=/)
-
+- [Slides apresentação SR1](https://www.canva.com/design/DAGlk-OyK3U/sfz8-SnF07B0pNAjbGoarA/edit)
