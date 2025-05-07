@@ -2,7 +2,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
-from .models import Aluno
+from .models import Aluno, Avaliacao
 from django.contrib import messages
 from django.urls import reverse
 from .decorators import login_required
@@ -73,6 +73,7 @@ def login(request):
     
     return render(request, 'login.html')
 
+@login_required
 def logout_view(request):
     logout(request)
     return redirect('home')  
@@ -167,4 +168,25 @@ def editar_alunos(request, aluno_id):
             messages.error(request, 'Você precisa alterar alguma informação.')
 
     return render(request, 'editar.html', {'aluno': aluno})
-    
+
+@login_required
+def avaliar_solidare(request):
+    if request.method == 'POST':
+        pergunta_1 = request.POST.get('pergunta_1')
+        pergunta_2 = request.POST.get('pergunta_2')
+        pergunta_3 = request.POST.get('pergunta_3')
+        sugestao = request.POST.get('sugestao', '')
+
+        if not all([pergunta_1, pergunta_2, pergunta_3]):
+            messages.error(request, 'Responda todos os campos.')
+            return render(request, 'avaliacao.html')
+
+        Avaliacao.objects.create(
+            pergunta_1=pergunta_1,
+            pergunta_2=pergunta_2,
+            pergunta_3=pergunta_3,
+            sugestao=sugestao
+        )
+        messages.success(request, 'Avaliação enviada com sucesso!')
+
+    return render(request, 'avaliacao.html')

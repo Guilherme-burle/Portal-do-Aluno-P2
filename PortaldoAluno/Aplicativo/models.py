@@ -38,3 +38,14 @@ class Cadastro(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Avaliacao(models.Model):
+    OPCOES = [
+        ('sim', 'Sim'),
+        ('nao', 'Não'),
+    ]
+
+    pergunta_1 = models.CharField(max_length=3, choices=OPCOES)
+    pergunta_2 = models.CharField(max_length=3, choices=OPCOES)
+    pergunta_3 = models.CharField(max_length=3, choices=OPCOES)
+    sugestao = models.CharField(max_length=100)
