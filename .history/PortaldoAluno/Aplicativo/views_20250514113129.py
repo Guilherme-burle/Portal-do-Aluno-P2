@@ -7,7 +7,6 @@ from django.contrib import messages
 from django.urls import reverse
 from .decorators import login_required
 from django.contrib.auth.hashers import make_password
-from datetime import datetime
 
 def home(request):
     return render(request, 'home.html')

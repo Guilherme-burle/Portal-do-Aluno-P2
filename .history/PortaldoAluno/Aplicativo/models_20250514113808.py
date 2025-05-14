@@ -51,7 +51,7 @@ class Avaliacao(models.Model):
     sugestao = models.CharField(max_length=100)
 
 class EventoCalendario(models.Model):
-    nome = models.CharField(max_length=100)
+    nome = models.CharField(max_length=100, default )
     data = models.DateField()
     descricao = models.TextField(blank=True, null=True)
 

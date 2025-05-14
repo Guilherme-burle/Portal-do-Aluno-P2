@@ -7,7 +7,6 @@ from django.contrib import messages
 from django.urls import reverse
 from .decorators import login_required
 from django.contrib.auth.hashers import make_password
-from datetime import datetime
 
 def home(request):
     return render(request, 'home.html')
@@ -193,7 +192,7 @@ def avaliar_solidare(request):
     return render(request, 'avaliacao.html')
 
 @login_required
-def calendario(request):
+def calendario_academico(request):
     eventos = EventoCalendario.objects.all().order_by('data')
     meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
     dias_semana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"]

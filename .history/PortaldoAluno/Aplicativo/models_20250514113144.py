@@ -49,11 +49,3 @@ class Avaliacao(models.Model):
     pergunta_2 = models.CharField(max_length=3, choices=OPCOES)
     pergunta_3 = models.CharField(max_length=3, choices=OPCOES)
     sugestao = models.CharField(max_length=100)
-
-class EventoCalendario(models.Model):
-    nome = models.CharField(max_length=100)
-    data = models.DateField()
-    descricao = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return f"{self.nome} - {self.data.strftime('%d/%m/%Y')}"

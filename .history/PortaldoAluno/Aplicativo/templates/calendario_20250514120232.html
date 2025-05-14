@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendário Acadêmico</title>
+
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f1f6fa;
+}
+
+.container {
+  background-color: #fff;
+  border: 2px solid #00a0e4;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  background-color: #00a0e4;
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+h2 {
+  text-align: center;
+  color: #0077cc;
+  margin-top: 20px;
+}
+
+.question {
+  margin-bottom: 20px;
+  color: #0077cc;
+  font-size: 16px;
+}
+
+.question label {
+  margin-right: 15px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button, .btn {
+  background-color: #00a0e4;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover, .btn:hover {
+  background-color: #0088c2;
+}
+
+.back-button {
+  background-color: #00a0e4;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #0088c2;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}
+
+</head>
+<body>
+
+  <div class="calendario-container">
+    <div class="calendario-header">
+      <button onclick="mudarMes(-1)">&lt;</button>
+      <h2 id="mes-ano"></h2>
+      <button onclick="mudarMes(1)">&gt;</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+            <th>Segunda</th>
+            <th>Terça</th>
+            <th>Quarta</th>
+            <th>Quinta</th>
+            <th>Sexta</th>
+            <th>Sábado</th>
+            <th>Domingo</th>
+        </tr>
+      </thead>
+      <tbody id="dias"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    let anoAtual = 2025;
+    let mesAtual = 5; // junho (índice 5)
+
+    function preencherCalendario() {
+      const primeiroDia = new Date(anoAtual, mesAtual, 1);
+      const ultimoDia = new Date(anoAtual, mesAtual + 1, 0);
+      const diasContainer = document.getElementById("dias");
+      const mesAno = document.getElementById("mes-ano");
+
+      mesAno.textContent = `${meses[mesAtual]} ${anoAtual}`;
+      diasContainer.innerHTML = "";
+      let diaAtual = 1;
+
+      for (let i = 0; i < 6; i++) {
+        const linha = document.createElement("tr");
+        for (let j = 0; j < 7; j++) {
+          const celula = document.createElement("td");
+          const diaSemana = (i === 0 && j < primeiroDia.getDay()) || diaAtual > ultimoDia.getDate();
+          if (!diaSemana) {
+            const divNumero = document.createElement("div");
+            divNumero.classList.add("dia-numero");
+            divNumero.textContent = diaAtual++;
+            celula.appendChild(divNumero);
+          }
+          linha.appendChild(celula);
+        }
+        diasContainer.appendChild(linha);
+      }
+    }
+
+    function mudarMes(incremento) {
+      mesAtual += incremento;
+      if (mesAtual < 0) {
+        mesAtual = 11;
+        anoAtual--;
+      } else if (mesAtual > 11) {
+        mesAtual = 0;
+        anoAtual++;
+      }
+      preencherCalendario();
+    }
+
+    preencherCalendario();
+  </script>
+</body>
+</html>

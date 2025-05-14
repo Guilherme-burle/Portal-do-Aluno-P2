@@ -21,44 +21,48 @@
     }
 
     .calendario-header {
-        background-color: #00a0e4;
-        color: white;
-        padding: 20px;
-        text-align: center;
-        position: relative;
-        }
+      background-color: #00a0e4;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .calendario-header img {
+      height: 40px;
+      margin-bottom: 10px;
+    }
 
     .calendario-header h2 {
-        margin: 0;
-        font-size: 20px;
-        position: relative;
-        z-index: 1;
-        }
+      margin: 0;
+      font-size: 20px;
+    }
 
     .calendario-header button {
-        position: absolute;
-        top: 20px;
-        background-color: white;
-        color: #00a0e4;
-        border: none;
-        padding: 10px 16px;
-        font-size: 18px;
-        font-weight: bold;
-        border-radius: 6px;
-        cursor: pointer;
-        }
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: white;
+      color: #00a0e4;
+      border: none;
+      padding: 10px 16px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
 
     .calendario-header button:hover {
-        background-color: #ccefff;
-        }
+      background-color: #ccefff;
+    }
 
-    .calendario-header button:first-of-type {
-        left: 20px;
-        }
+    .calendario-header button:first-child {
+      left: 20px;
+    }
 
-    .calendario-header button:last-of-type {
-        right: 20px;
-        }
+    .calendario-header button:last-child {
+      right: 20px;
+    }
 
     table {
       width: 100%;
@@ -89,10 +93,14 @@
   </style>
 </head>
 <body>
+    <div class="container">
+            <div class="logo">
+                <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Alvo Certo">
+            </div>
 
   <div class="calendario-container">
     <div class="calendario-header">
-      <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Alvo Certo">
+      <img src="https://i.imgur.com/WkDq2Zu.png" alt="Logo Alvo Certo">
       <button onclick="mudarMes(-1)">&lt;</button>
       <h2 id="mes-ano"></h2>
       <button onclick="mudarMes(1)">&gt;</button>

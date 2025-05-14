@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendário Acadêmico</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f8fa;
+    }
+
+    header {
+      background-color: #00a0e4;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ccefff;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth-buttons a {
+      background-color: white;
+      color: #00a0e4;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .auth-buttons a:hover {
+      background-color: #e6f4fa;
+    }
+
+    .banner {
+      background-image: url('https://images.unsplash.com/photo-1581090700227-1e8aab4ed6c7?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      animation: zoomIn 20s infinite alternate ease-in-out;
+    }
+
+    @keyframes zoomIn {
+      from {
+        background-size: 100%;
+      }
+      to {
+        background-size: 110%;
+      }
+    }
+
+    .banner h1 {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 36px;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: 40px auto;
+    }
+
+    .carousel-slide {
+      display: none;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .carousel-slide.active {
+      display: block;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 999;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: #e6f4fa;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .auth-buttons {
+        margin-top: 10px;
+      }
+
+      .banner h1 {
+        font-size: 24px;
+        padding: 10px;
+      }
+    }
+
+    /* ESTILO DO CALENDÁRIO */
+    .calendario-container {
+      width: 80%;
+      margin: 40px auto;
+    }
+
+    .calendario-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .calendario-header button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .calendario-header h2 {
+      margin: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+      position: relative;
+      height: 80px;
+      background-color: #fff;
+    }
+
+    th {
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .dia-numero {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      font-size: 14px;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calendario-container">
+    <div class="calendario-header">
+      <button onclick="mudarMes(-1)">&lt;</button>
+      <h2 id="mes-ano"></h2>
+      <button onclick="mudarMes(1)">&gt;</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Domingo</th>
+          <th>Segunda</th>
+          <th>Terça</th>
+          <th>Quarta</th>
+          <th>Quinta</th>
+          <th>Sexta</th>
+          <th>Sábado</th>
+        </tr>
+      </thead>
+      <tbody id="dias"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    let anoAtual = 2025;
+    let mesAtual = 5; // junho (índice 5)
+
+    function preencherCalendario() {
+      const primeiroDia = new Date(anoAtual, mesAtual, 1);
+      const ultimoDia = new Date(anoAtual, mesAtual + 1, 0);
+      const diasContainer = document.getElementById("dias");
+      const mesAno = document.getElementById("mes-ano");
+
+      mesAno.textContent = `${meses[mesAtual]} ${anoAtual}`;
+      diasContainer.innerHTML = "";
+      let diaAtual = 1;
+
+      for (let i = 0; i < 6; i++) {
+        const linha = document.createElement("tr");
+        for (let j = 0; j < 7; j++) {
+          const celula = document.createElement("td");
+          const diaSemana = (i === 0 && j < primeiroDia.getDay()) || diaAtual > ultimoDia.getDate();
+          if (!diaSemana) {
+            const divNumero = document.createElement("div");
+            divNumero.classList.add("dia-numero");
+            divNumero.textContent = diaAtual++;
+            celula.appendChild(divNumero);
+          }
+          linha.appendChild(celula);
+        }
+        diasContainer.appendChild(linha);
+      }
+    }
+
+    function mudarMes(incremento) {
+      mesAtual += incremento;
+      if (mesAtual < 0) {
+        mesAtual = 11;
+        anoAtual--;
+      } else if (mesAtual > 11) {
+        mesAtual = 0;
+        anoAtual++;
+      }
+      preencherCalendario();
+    }
+
+    preencherCalendario();
+  </script>
+</body>
+</html>

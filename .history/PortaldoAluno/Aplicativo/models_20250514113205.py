@@ -56,4 +56,4 @@ class EventoCalendario(models.Model):
     descricao = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f"{self.nome} - {self.data.strftime('%d/%m/%Y')}"
+        return f"{self.nome} - {self.data.strftime('%d/%m/%Y')}"J
