@@ -2,7 +2,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
-from .models import Aluno, Avaliacao,  EventoCalendario
+from .models import Aluno, Avaliacao
 from django.contrib import messages
 from django.urls import reverse
 from .decorators import login_required
@@ -190,11 +190,3 @@ def avaliar_solidare(request):
         messages.success(request, 'Avaliação enviada com sucesso!')
 
     return render(request, 'avaliacao.html')
-
-@login_required
-def calendario(request):
-    eventos = EventoCalendario.objects.all().order_by('data_inicio')
-    context = {
-        'eventos': eventos
-    }
-    return render(request, 'calendario.html', context)

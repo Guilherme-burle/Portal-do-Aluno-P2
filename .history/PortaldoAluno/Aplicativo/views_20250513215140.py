@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.urls import reverse
 from .decorators import login_required
 from django.contrib.auth.hashers import make_password
+from .models import Aluno, Avaliacao, EventoCalendario
 
 def home(request):
     return render(request, 'home.html')
@@ -191,10 +192,3 @@ def avaliar_solidare(request):
 
     return render(request, 'avaliacao.html')
 
-@login_required
-def calendario(request):
-    eventos = EventoCalendario.objects.all().order_by('data_inicio')
-    context = {
-        'eventos': eventos
-    }
-    return render(request, 'calendario.html', context)

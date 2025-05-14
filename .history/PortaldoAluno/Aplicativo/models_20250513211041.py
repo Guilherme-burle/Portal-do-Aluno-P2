@@ -64,7 +64,7 @@ class EventoCalendario(models.Model):
     descricao = models.TextField(null=True, blank=True)
     tipo_evento = models.CharField(max_length=20, choices=TIPO_EVENTO_CHOICES)
 
-    def __str__(self):
+    def _str_(self):
         return self.titulo
 
     class Meta:

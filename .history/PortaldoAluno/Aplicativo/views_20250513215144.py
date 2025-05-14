@@ -191,10 +191,3 @@ def avaliar_solidare(request):
 
     return render(request, 'avaliacao.html')
 
-@login_required
-def calendario(request):
-    eventos = EventoCalendario.objects.all().order_by('data_inicio')
-    context = {
-        'eventos': eventos
-    }
-    return render(request, 'calendario.html', context)

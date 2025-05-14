@@ -11,6 +11,5 @@ urlpatterns = [
     path('ver/', views.ver, name='ver'),
     path('ver/<int:aluno_id>/deletar', views.deletar_alunos, name='deletar'),
     path('ver/<int:aluno_id>/editar', views.editar_alunos, name='editar'),
-    path('avaliacao/', views.avaliar_solidare, name='avaliacao'),
-    path('calendario/', views.calendario, name='calendario'),
+    path('avaliacao', views.avaliar_solidare, name='avaliacao'),
 ]

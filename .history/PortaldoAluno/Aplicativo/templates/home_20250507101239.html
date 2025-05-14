@@ -175,8 +175,7 @@
         <li><a href="#">Doe</a></li>
         <li><a href="#">Contato</a></li>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'calendario' %}">Calendário Acadêmico</a></li>
-        <li><a href="{% url 'avaliacao' %}">Avalie a Solidare</a></li>
+          <li><a href="{% url 'avaliacao' %}">Avalie a Solidare</a></li>
         {% endif %}
       </ul>
     </nav>

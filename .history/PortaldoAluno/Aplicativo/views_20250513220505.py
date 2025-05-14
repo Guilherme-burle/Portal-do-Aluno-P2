@@ -197,4 +197,4 @@ def calendario(request):
     context = {
         'eventos': eventos
     }
-    return render(request, 'calendario.html', context)
+    return render(request, 'calendario.html')

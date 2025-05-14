@@ -30,13 +30,13 @@ class Aluno(models.Model):
     telefone = models.CharField(max_length=20)
     curso = models.CharField(max_length=30, choices=CURSOS)
 
-    def _str_(self):
+    def __str__(self):
         return self.nome
 
 class Cadastro(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    def _str_(self):
+    def __str__(self):
         return self.user.username
 
 class Avaliacao(models.Model):
@@ -49,23 +49,3 @@ class Avaliacao(models.Model):
     pergunta_2 = models.CharField(max_length=3, choices=OPCOES)
     pergunta_3 = models.CharField(max_length=3, choices=OPCOES)
     sugestao = models.CharField(max_length=100)
-
-class EventoCalendario(models.Model):
-    TIPO_EVENTO_CHOICES = [
-        ('prova', 'Prova'),
-        ('entrega', 'Entrega de Trabalho'),
-        ('feriado', 'Feriado'),
-        ('comemoracao', 'Comemoração'),
-        ('outro', 'Outro'),
-    ]
-    titulo = models.CharField(max_length=200)
-    data_inicio = models.DateField()
-    data_fim = models.DateField(null=True, blank=True)
-    descricao = models.TextField(null=True, blank=True)
-    tipo_evento = models.CharField(max_length=20, choices=TIPO_EVENTO_CHOICES)
-
-    def __str__(self):
-        return self.titulo
-
-    class Meta:
-        ordering = ['data_inicio']

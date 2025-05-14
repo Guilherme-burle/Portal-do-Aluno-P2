@@ -166,6 +166,7 @@
 
     <nav>
       <ul>
+        {% if user.is_authenticated %}
         <li><a href="#">Início</a></li>
         <li><a href="#">Quem Somos</a></li>
         <li><a href="#">Programas</a></li>
@@ -174,8 +175,7 @@
         <li><a href="#">Alvo em Movimento</a></li>
         <li><a href="#">Doe</a></li>
         <li><a href="#">Contato</a></li>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'calendario' %}">Calendário Acadêmico</a></li>
+        <li><a href="{% url 'calendario_academico' %}">Calendário Acadêmico</a></li>
         <li><a href="{% url 'avaliacao' %}">Avalie a Solidare</a></li>
         {% endif %}
       </ul>

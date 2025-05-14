@@ -1,0 +1,38 @@
+{% extends 'home.html' %} 
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Calendário Acadêmico</h2>
+
+    {% if eventos %}
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Título</th>
+                    <th>Data de Início</th>
+                    <th>Data de Fim</th>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evento in eventos %}
+                <tr>
+                    <td>{{ evento.titulo }}</td>
+                    <td>{{ evento.data_inicio|date:"d/m/Y" }}</td>
+                    <td>{{ evento.data_fim|date:"d/m/Y"|default_if_none:"-" }}</td>
+                    <td>{{ evento.get_tipo_evento_display }}</td>
+                    <td>{{ evento.descricao|default_if_none:"-" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="alert alert-info">Nenhum evento cadastrado no calendário acadêmico no momento.</p>
+        <!-- Cenário Desfavorável 2: Datas aparecem em branco, ou seja, sem eventos, pois não foram cadastradas. -->
+    {% endif %}
+
+    <!-- Exemplo de como adicionar um link para voltar, ajuste conforme a estrutura do seu projeto -->
+    <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Voltar</a>
+</div>
+{% endblock %}
