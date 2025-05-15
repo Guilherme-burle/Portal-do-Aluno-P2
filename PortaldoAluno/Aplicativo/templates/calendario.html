@@ -86,13 +86,41 @@
       font-weight: bold;
       text-align: left;
     }
+
+    .btn {
+      background-color: #00a0e4;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
   </style>
 </head>
 <body>
 
+  <script>
+  const urlAddEventos = "{% url 'add_eventos' %}";
+
+  const eventosDoMes = {
+    {% regroup eventos by data as eventos_por_data %}
+    {% for grupo in eventos_por_data %}
+      "{{ grupo.grouper|date:'Y-m-d' }}": [
+        {% for evento in grupo.list %}
+          "{{ evento.nome|escapejs }}"{% if not forloop.last %},{% endif %}
+        {% endfor %}
+      ]{% if not forloop.last %},{% endif %}
+    {% endfor %}
+    };
+  </script>
+
   <div class="calendario-container">
     <div class="calendario-header">
-      <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Alvo Certo">
+      <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Alvo Certo" style="height: 60px;">
       <button onclick="mudarMes(-1)">&lt;</button>
       <h2 id="mes-ano"></h2>
       <button onclick="mudarMes(1)">&gt;</button>
@@ -111,12 +139,13 @@
       </thead>
       <tbody id="dias"></tbody>
     </table>
+  <button class="btn" onclick="location.href='{% url 'home' %}'">Voltar à home</button>
   </div>
 
   <script>
     const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-    let anoAtual = 2025;
-    let mesAtual = 5; // junho (índice 5)
+    let anoAtual = {{ ano_atual }};
+    let mesAtual = {{ mes_atual }};
 
     function preencherCalendario() {
       const primeiroDia = new Date(anoAtual, mesAtual, 1);
@@ -128,7 +157,7 @@
       diasContainer.innerHTML = "";
 
       let diaAtual = 1;
-      let inicio = primeiroDia.getDay(); // domingo = 0
+      let inicio = primeiroDia.getDay();
       if (inicio === 0) inicio = 7;
 
       for (let i = 0; i < 6; i++) {
@@ -138,10 +167,58 @@
           if ((i === 0 && j < inicio) || diaAtual > ultimoDia.getDate()) {
             celula.innerHTML = "";
           } else {
+            const dia = diaAtual++;
+            const mesFormatado = (mesAtual + 1).toString().padStart(2, '0'); 
+            const diaFormatado = dia.toString().padStart(2, '0');
+            const data = `${anoAtual}-${mesFormatado}-${diaFormatado}`;
+
             const divNumero = document.createElement("div");
             divNumero.classList.add("dia-numero");
-            divNumero.textContent = diaAtual++;
+            divNumero.textContent = dia;
+
+            const divMais = document.createElement("div");
+            divMais.textContent = "+";
+            divMais.style.color = "#00a0e4"; 
+            divMais.style.fontWeight = "bold";
+            divMais.style.fontSize = "18px";
+            divMais.style.textAlign = "left";
+            divMais.style.marginTop = "5px";
+            divMais.style.cursor = "pointer";
+
+            divMais.onclick = () => {
+              window.location.href = `${urlAddEventos}?data=${data}`;
+            };
+
             celula.appendChild(divNumero);
+            celula.appendChild(divMais);
+
+            const eventosDoDia = eventosDoMes[data];
+            if (eventosDoDia && eventosDoDia.length > 0) {
+              const containerEventos = document.createElement("div");
+              containerEventos.style.marginTop = "5px";
+              containerEventos.style.backgroundColor = "#e6f2fb";
+              containerEventos.style.borderRadius = "4px";
+              containerEventos.style.padding = "4px";
+              containerEventos.style.fontSize = "12px";
+              containerEventos.style.color = "#0077c2";
+              containerEventos.style.textAlign = "left";
+              containerEventos.style.maxHeight = "50px";
+              containerEventos.style.overflowY = "auto";
+
+              eventosDoDia.forEach(evento => {
+                const eventoDiv = document.createElement("div");
+                eventoDiv.textContent = evento;
+                eventoDiv.style.backgroundColor = "#dff0fb";
+                eventoDiv.style.marginBottom = "4px";
+                eventoDiv.style.padding = "2px 6px";
+                eventoDiv.style.borderRadius = "4px";
+                eventoDiv.style.fontWeight = "bold";
+                containerEventos.appendChild(eventoDiv);
+              });
+
+              celula.appendChild(containerEventos);
+            }
+
           }
           linha.appendChild(celula);
         }

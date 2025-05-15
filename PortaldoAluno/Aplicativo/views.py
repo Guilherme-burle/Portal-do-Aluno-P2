@@ -2,13 +2,15 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
-from .models import Aluno, Avaliacao,  EventoCalendario
+from .models import Aluno, Avaliacao, EventoCalendario
 from django.contrib import messages
 from django.urls import reverse
 from .decorators import login_required
 from django.contrib.auth.hashers import make_password
 from datetime import datetime
+from datetime import date
 
+@login_required
 def home(request):
     return render(request, 'home.html')
 
@@ -194,12 +196,37 @@ def avaliar_solidare(request):
 
 @login_required
 def calendario(request):
-    eventos = EventoCalendario.objects.all().order_by('data')
+    hoje = date.today()
+    eventos = EventoCalendario.objects.filter(user=request.user).order_by('data')
     meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
     dias_semana = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"]
     contexto = {
         'meses': meses,
         'dias_semana': dias_semana,
-        'eventos': eventos
+        'eventos': eventos,
+        'ano_atual': hoje.year,
+        'mes_atual': hoje.month - 1  
     }
     return render(request, 'calendario.html', contexto)
+
+@login_required
+def add_eventos(request):
+    data = request.GET.get('data')
+
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        descricao = request.POST.get('descricao')
+
+
+        if nome and data:
+            EventoCalendario.objects.create(nome=nome, data=data, descricao=descricao, user=request.user)
+            from django.contrib import messages
+            messages.success(request, "Evento adicionado com sucesso!")
+            return redirect('calendario')
+        else:
+            return render(request, 'add_eventos.html', {'erro': 'Dados incompletos.', 'data': data}) 
+
+    if not data:
+        return render(request, 'erro.html', {'mensagem': 'Data não informada.'})
+
+    return render(request, 'add_eventos.html', {'data': data})
