@@ -29,7 +29,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário favorável 1:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Cadastrar alunos” e preenche os dados necessários 
+  Quando acessa a aba “Cadastrar alunos” e preenche os dados necessários <br>
   Então o sistema salva tudo que foi pedido no banco de dados.
 
 - **Cenário desfavorável 1:**  
@@ -59,12 +59,12 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário favorável 3:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Gerenciar alunos” e seleciona “Deletar” no aluno desejado<br>
+  Quando acessa a aba “Gerenciar alunos” e seleciona “Deletar” no aluno desejado <br>
   Então o aluno escolhido é excluído do sistema.
 
 - **Cenário desfavorável 1:**  
   Dado que o administrador está logado no portal
-  Quando acessa a aba “Gerenciar alunos”  
+  Quando acessa a aba “Gerenciar alunos” <br>
   Então nenhum aluno aparece pois ainda não há alunos cadastrados.
 
 </details>
