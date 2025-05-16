@@ -95,7 +95,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - **Cenário favorável 1:**  
   Dado que o aluno está matriculado e logado no portal <br>
   Quando acessa a aba “Calendário acadêmico", posteriormente "Adicionar evento" e preenche o evento desejado. <br>
-  Então são o sistema salva o evento no banco de dados.
+  Então o sistema salva o evento no banco de dados.
 
 - **Cenário desfavorável 1:**  
   Dado que o aluno está matriculado e logado no portal <br>
