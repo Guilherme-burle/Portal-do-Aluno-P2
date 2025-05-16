@@ -34,12 +34,12 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário desfavorável 1:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Cadastrar alunos”  
+  Quando acessa a aba “Cadastrar alunos” e insere letras ao invés de números no campo "idade"
   Então o sistema não responde adequadamente à tentativa de cadastro, pois no lugar de números foram inseridas letras na idade.
 
 - **Cenário desfavorável 2:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Cadastrar alunos”  
+  Quando acessa a aba “Cadastrar alunos” e insere números ao invés de letras no campo "nome".
   Então o sistema não responde adequadamente à tentativa de cadastro, pois um número foi inserido no lugar do nome.
 
 </details>
@@ -90,35 +90,35 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 </details>
 
 <details>
-<summary><strong>História 4:</strong> Como administrador, eu gostaria de acessar o calendário acadêmico da instituição para adicionar eventos, e como aluno, visualizá-los.</summary>
+<summary><strong>História 4:</strong> Como aluno, eu gostaria de acessar o calendário acadêmico para adicionar meus eventos para manter uma organização e rotina de estudos.</summary>
 
 - **Cenário favorável 1:**  
-  Dado que o administrador está logado no portal <br>
-  Quando acessa a aba “Calendário acadêmico", posteriormente "Adicionar evento" e preenche o evento desejado. <br>
-  Então são o sistema salva o evento no banco de dados e ele é exibido no calendário para os alunos se informarem.
-
-- **Cenário favorável 2:**  
   Dado que o aluno está matriculado e logado no portal <br>
-  Quando acessa a aba “Calendário acadêmico” <br>
-  Então os eventos são exibidos em seu respectivo dia no caléndario.
+  Quando acessa a aba “Calendário acadêmico", posteriormente "Adicionar evento" e preenche o evento desejado. <br>
+  Então o sistema salva o evento no banco de dados.
 
 - **Cenário desfavorável 1:**  
-  Dado que o administrador está logado <br>
+  Dado que o aluno está matriculado e logado no portal <br>
+  Quando acessa a aba “Calendário acadêmico” e não preenche título do evento<br>
+  Então o sistema exibe mensagem de erro e só salva o evento quando o aluno preencher o título.
+
+- **Cenário desfavorável 2:**  
+  Dado que o aluno está matriculado e logado <br>
   Quando acessa a aba “Calendário acadêmico”, posteriormente "Adicionar evento" e preenche letras ao invés de números no horário do evento <br>
-  Então o sistema exibe mensagem de erro e só salva o evento quando o administrador preencher corretamente.
+  Então o sistema exibe mensagem de erro e só salva o evento quando o aluno preencher corretamente.
   
 </details>
 
 <details>
-<summary><strong>História 5:</strong> Como administrador, eu gostaria de acessar o calendário acadêmico da instituição para gerenciá-lo, ou seja: editar e excluir eventos.Como aluno, apenas visualizá-lo</summary>
+<summary><strong>História 5:</strong> Como aluno, eu gostaria de acessar o calendário acadêmico para gerenciá-lo, ou seja: visualizar, editar e excluir eventos.</summary>
 
 - **Cenário favorável 1:**  
   Dado que o aluno está matriculado e logado no portal <br>
   Quando acessa a aba “Calendário acadêmico” <br>
-  Então são exibidos os eventos acadêmicos no calendário, como: datas de provas, entregas, feriados e comemorações.
+  Então são exibidos os eventos acadêmicos cadastrados no calendário, como: datas de provas, entregas, e estudos personalizados.
 
 - **Cenário favorável 2:**  
-  Dado que o administrador está logado no portal <br>
+  Dado que o aluno está matriculado e logado no portal <br>
   Quando acessa a aba “Calendário acadêmico” e posteriormente "Editar" no evento desejado e muda as informações desejadas, como mudança de nome e horário. <br>
   Então as novas informações são salvas no banco de dados, assim, substituindo as antigas.
 
