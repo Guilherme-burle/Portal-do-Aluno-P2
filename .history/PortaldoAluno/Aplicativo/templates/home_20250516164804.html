@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Alvo Certo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f8fa;
+    }
+
+    header {
+      background-color: #00a0e4;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ccefff;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth-buttons a {
+      background-color: white;
+      color: #00a0e4;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .auth-buttons a:hover {
+      background-color: #e6f4fa;
+    }
+
+    .banner {
+      background-size: cover;
+      background-position: center;
+      height: 315px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      animation: zoomIn 20s infinite alternate ease-in-out;
+    }
+
+    @keyframes zoomIn {
+      from {
+        background-size: 100%;
+      }
+      to {
+        background-size: 110%;
+      }
+    }
+
+    .banner h1 {
+      background-color: rgb(0, 174, 239);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 36px;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: 40px auto;
+    }
+
+    .carousel-slide {
+      display: none;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .carousel-slide.active {
+      display: block;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 999;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: #e6f4fa;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .auth-buttons {
+        margin-top: 10px;
+      }
+
+      .banner h1 {
+        font-size: 24px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Alvo Certo">
+    </div>
+
+    <nav>
+      <ul>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'calendario' %}">Calendário Acadêmico</a></li>
+        <li><a href="{% url 'avaliacao' %}">Avalie a Solidare</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <div class="auth-buttons">
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Sair</a>
+      {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'cadastro' %}">Cadastro</a>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if user.is_authenticated %}
+  <h2 style="text-align: center; color: #00a0e4; margin-top: 20px;">
+    Bem-vindo(a), {{ user.first_name|default:"usuário" }}!
+  </h2>
+  {% endif %}
+
+  <section class="banner">
+    <h1>Transformando vidas com educação e solidariedade</h1>
+  </section>
+
+
+  <a class="whatsapp-float" href="https://wa.me/5581932514480" target="_blank" title="Fale conosco no WhatsApp">
+    🟢
+  </a>
+
+  <footer>
+    © 2025 Alvo Certo. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    let index = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+
+    function showNextSlide() {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }
+
+    setInterval(showNextSlide, 4000);
+  </script>
+</body>
+</html>

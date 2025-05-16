@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Alunos Cadastrados - Alvo Certo</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f8fa;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      border: 2px solid #00a0e4;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .logo {
+      background-color: #00a0e4;
+      padding: 15px;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      justify-content: center;
+      margin: -40px -40px 20px -40px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    h3 {
+      color: #00a0e4;
+      margin-bottom: 30px;
+    }
+
+    p {
+        color: #00a0e4;
+        margin-bottom: 30px;
+      }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #00a0e4;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .btn {
+      background-color: #00a0e4;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background-color: #007bbd;
+    }
+
+    .btn-deletar {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      color: #a60c0c;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-deletar:hover {
+      text-decoration: underline;
+    }
+
+    .btn-editar {
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      color: #007bff;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-editar:hover {
+      text-decoration: underline;
+    }
+
+    .wrapper {
+        width: 100%;
+        max-width: 800px;
+        text-align: center;
+    }
+      
+    .messages {
+        list-style: none;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+      
+    .messages li {
+        padding: 12px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+      
+    .messages li.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+      
+    .messages li.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="wrapper">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div class="container">
+            <div class="logo">
+                <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Alvo Certo">
+            </div>
+            <h3>Avalie a Solidare!</h3>
+
+            <form method="post">
+                {% csrf_token %}
+            
+                <p>1. Você está satisfeito com os serviços prestados?<br>
+                    <input class='p' type="radio" name="pergunta_1" value="sim" required> Sim
+                    <input class='p' type="radio" name="pergunta_1" value="nao"> Não
+                  </p>
+                  
+                <p>2. Você está satisfeito com a infrestrutura do Instituto Solidare?<br>
+                    <input class='p' type="radio" name="pergunta_3" value="sim" required> Sim
+                    <input class='p' type="radio" name="pergunta_3" value="nao"> Não
+                  </p>
+
+                <p>3. Você recomendaria o Instituto Solidare?<br>
+                    <input class='p' type="radio" name="pergunta_2" value="sim" required> Sim
+                    <input class='p' type="radio" name="pergunta_2" value="nao"> Não
+                </p>
+            
+                <p>4. Deixe uma sugestão para melhoria do Instituto Solidare:<br>
+                    <textarea class='p' name="sugestao" rows="4" cols="50" required></textarea>
+                </p>
+            
+                <button class='btn' type="submit">Enviar</button>
+            </form>
+
+            <button class="btn" onclick="location.href='{% url 'home' %}'">Voltar à home</button>
+        </div>
+    </div>
+</body>
+</html>
