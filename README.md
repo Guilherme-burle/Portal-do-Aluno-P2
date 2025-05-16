@@ -63,7 +63,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
   Então o aluno escolhido é excluído do sistema.
 
 - **Cenário desfavorável 1:**  
-  Dado que o administrador está logado no portal
+  Dado que o administrador está logado no portal <br>
   Quando acessa a aba “Gerenciar alunos” <br>
   Então nenhum aluno aparece pois ainda não há alunos cadastrados.
 
@@ -73,18 +73,18 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 <summary><strong>História 3:</strong> Como aluno eu gostaria de avaliar a instituição com sugestões de melhorias.</summary>
 
 - **Cenário favorável 1:**  
-  Dado que o aluno está matriculado e logado no portal
-  Quando acessa a aba “Avalie a Solidare”  
+  Dado que o aluno está matriculado e logado no portal <br>
+  Quando acessa a aba “Avalie a Solidare” <br>
   Então perguntas são exibidas para resposta de "sim" e "não".
 
 - **Cenário favorável 2:**  
-  Dado que o aluno está matriculado e logado no portal 
-  Quando acessa a aba “Avalie a Solidare”  
+  Dado que o aluno está matriculado e logado no portal <br>
+  Quando acessa a aba “Avalie a Solidare”  <br>
   Então uma caixa é exibida para registrar sugestões e opiniões.
 
 - **Cenário desfavorável 1:**  
-  Dado que o aluno está matriculado e logado no portal
-  Quando acessa a aba “Avalie a Solidare”  
+  Dado que o aluno está matriculado e logado no portal <br>
+  Quando acessa a aba “Avalie a Solidare” <br>
   Então uma falha no carregamento impede o acesso à aba.
 
 </details>
@@ -93,18 +93,18 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 <summary><strong>História 4:</strong> Como administrador, eu gostaria de acessar o calendário acadêmico da instituição para adicionar eventos, e como aluno, visualizá-los.</summary>
 
 - **Cenário favorável 1:**  
-  Dado que o administrador está logado no portal
-  Quando acessa a aba “Calendário acadêmico", posteriormente "Adicionar evento" e preenche o evento desejado.
+  Dado que o administrador está logado no portal <br>
+  Quando acessa a aba “Calendário acadêmico", posteriormente "Adicionar evento" e preenche o evento desejado. <br>
   Então são o sistema salva o evento no banco de dados e ele é exibido no calendário para os alunos se informarem.
 
 - **Cenário favorável 2:**  
-  Dado que o aluno está matriculado e logado no portal
-  Quando acessa a aba “Calendário acadêmico”  
+  Dado que o aluno está matriculado e logado no portal <br>
+  Quando acessa a aba “Calendário acadêmico” <br>
   Então os eventos são exibidos em seu respectivo dia no caléndario.
 
 - **Cenário desfavorável 1:**  
-  Dado que o administrador está logado  
-  Quando acessa a aba “Calendário acadêmico”, posteriormente "Adicionar evento" e preenche letras ao invés de números no horário do evento  
+  Dado que o administrador está logado <br>
+  Quando acessa a aba “Calendário acadêmico”, posteriormente "Adicionar evento" e preenche letras ao invés de números no horário do evento <br>
   Então o sistema exibe mensagem de erro e só salva o evento quando o administrador preencher corretamente.
   
 </details>
@@ -113,23 +113,23 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 <summary><strong>História 5:</strong> Como administrador, eu gostaria de acessar o calendário acadêmico da instituição para gerenciá-lo, ou seja: editar e excluir eventos.Como aluno, apenas visualizá-lo</summary>
 
 - **Cenário favorável 1:**  
-  Dado que o aluno está matriculado e logado no portal
-  Quando acessa a aba “Calendário acadêmico”  
+  Dado que o aluno está matriculado e logado no portal <br>
+  Quando acessa a aba “Calendário acadêmico” <br>
   Então são exibidos os eventos acadêmicos no calendário, como: datas de provas, entregas, feriados e comemorações.
 
 - **Cenário favorável 2:**  
-  Dado que o administrador está logado no portal
-  Quando acessa a aba “Calendário acadêmico” e posteriormente "Editar" no evento desejado e muda as informações desejadas, como mudança de nome e horário.
+  Dado que o administrador está logado no portal <br>
+  Quando acessa a aba “Calendário acadêmico” e posteriormente "Editar" no evento desejado e muda as informações desejadas, como mudança de nome e horário. <br>
   Então as novas informações são salvas no banco de dados, assim, substituindo as antigas.
 
 - **Cenário favorável 3:**  
-  Dado que o administrador está logado no portal
-  Quando acessa a aba “Calendário acadêmico” e posteriormente "Excluir" no evento desejado
+  Dado que o administrador está logado no portal <br>
+  Quando acessa a aba “Calendário acadêmico” e posteriormente "Excluir" no evento desejado <br>
   Então o evento é excluído do banco de dados e desaparece do calendário.
 
-  - **Cenário desfavorável 1:**  
-  Dado que o aluno está matriculado e logado no portal
-  Quando acessa a aba “Calendário acadêmico”  
+- **Cenário desfavorável 1:**  
+  Dado que o aluno está matriculado e logado no portal <br>
+  Quando acessa a aba “Calendário acadêmico” <br>
   Então não aparece nada em nenhum dia do calendário, pois ainda não há eventos cadastrados.
 
 </details>
@@ -138,18 +138,18 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 <summary><strong>História 6:</strong> Como administrador, eu gostaria de adicionar o desempenho acadêmico e a frequência dos alunos.</summary>
 
 - **Cenário favorável 1:**  
-  Dado que o administrador está logado no portal
-  Quando acessa a aba “Desempenho e Frequência”, posteriormente "Adicionar informações" e preenche-as
+  Dado que o administrador está logado no portal <br>
+  Quando acessa a aba “Desempenho e Frequência”, posteriormente "Adicionar informações" e preenche-as <br>
   Então o sistema salva as informações no banco de dados.
 
 - **Cenário desfavorável 1:**  
-  Dado que o administrador está logado no portal  
-  Quando acessa a aba “Desempenho e Frequência” e tenta preencher letras ao invés de números no número de faltas do aluno
+  Dado que o administrador está logado no portal  <br>
+  Quando acessa a aba “Desempenho e Frequência” e tenta preencher letras ao invés de números no número de faltas do aluno <br>
   Então o sistema não permite e só salva as informações quando forem postas corretamente.
 
 - **Cenário desfavorável 2:**  
-  Dado que o administrador está logado no portal 
-  Quando acessa a aba “Desempenho e Frequência” e tenta preencher números ao invés de letras no nome do evento
+  Dado que o administrador está logado no portal <br>
+  Quando acessa a aba “Desempenho e Frequência” e tenta preencher números ao invés de letras no nome do evento <br>
   Então o sistema não permite e só salva as informações quando forem postas corretamente.
 
 </details>
@@ -158,18 +158,18 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 <summary><strong>História 7:</strong> Como administrador eu gostaria de gerenciar o desempenho acadêmico e a frequência dos alunos. Como aluno, apenas visualizá-los</summary>
 
 - **Cenário favorável 1:**  
-  Dado que o aluno está matriculado e logado no portal
-  Quando acessa a aba “Desempenho e Frequência”  
+  Dado que o aluno está matriculado e logado no portal <br>
+  Quando acessa a aba “Desempenho e Frequência” <br>
   Então o sistema exibe o número de faltas e o desempenho do aluno com "carinhas de satisfação" e comentário do avaliador.
 
 - **Cenário favorável 2:**  
   Dado que o administrador está logado no portal
-  Quando acessa a aba “Gerenciar alunos”, posteriormente "Editar D&F" no aluno desejado e muda as informações desejadas
-  Então as novas informações são salvas no banco de dados, assim, substituindo as antigas.
+  Quando acessa a aba “Gerenciar alunos”, posteriormente "Editar D&F" no aluno desejado e muda as informações desejadas <br>
+  Então as novas informações são salvas no banco de dados, assim, substituindo as antigas. <br>
 
 - **Cenário desfavorável 1:**  
-  Dado que o aluno está logado no portal 
-  Quando acessa a aba “Desempenho e Frequência”  
+  Dado que o aluno está logado no portal <br>
+  Quando acessa a aba “Desempenho e Frequência” <br>
   Então os campos aparecem em branco, pois não foram preenchidos ainda.
 
 </details>
