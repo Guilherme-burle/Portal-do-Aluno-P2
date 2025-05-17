@@ -231,6 +231,9 @@ def add_eventos(request):
     return render(request, 'add_eventos.html', {'data': data})
 
 @login_required
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import DesempenhoFrequencia, Aluno
+
 def desempenho_list(request):
     desempenhos = DesempenhoFrequencia.objects.all()
     alunos = Aluno.objects.all()
@@ -255,7 +258,7 @@ def desempenho_list(request):
 
     return render(request, 'desempenho/list.html', {'desempenhos': desempenhos, 'alunos': alunos})
 
-@login_required
+# Editar
 def desempenho_edit(request, pk):
     desempenho = get_object_or_404(DesempenhoFrequencia, pk=pk)
     alunos = Aluno.objects.all()
@@ -271,7 +274,7 @@ def desempenho_edit(request, pk):
 
     return render(request, 'desempenho/edit.html', {'desempenho': desempenho, 'alunos': alunos})
 
-@login_required
+# Excluir
 def desempenho_delete(request, pk):
     desempenho = get_object_or_404(DesempenhoFrequencia, pk=pk)
     desempenho.delete()

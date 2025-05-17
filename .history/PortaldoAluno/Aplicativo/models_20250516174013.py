@@ -30,13 +30,13 @@ class Aluno(models.Model):
     telefone = models.CharField(max_length=20)
     curso = models.CharField(max_length=30, choices=CURSOS)
 
-    def __str__(self):
-        return self.name
+    def _str__(self):
+        return self.nome
 
 class Cadastro(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    def __str__(self):
+    def _str_(self):
         return self.user.username
 
 class Avaliacao(models.Model):
@@ -49,9 +49,6 @@ class Avaliacao(models.Model):
     pergunta_2 = models.CharField(max_length=3, choices=OPCOES)
     pergunta_3 = models.CharField(max_length=3, choices=OPCOES)
     sugestao = models.CharField(max_length=100)
-
-    def __str__(self):
-        return f"Avaliação {self.id}"
 
 class EventoCalendario(models.Model):
     nome = models.CharField(max_length=100)
@@ -67,7 +64,7 @@ class DesempenhoFrequencia(models.Model):
     faltas = models.IntegerField()
     desempenho = models.CharField(max_length=100)  # Ex: "Excelente", "Bom", etc.
     emoji = models.CharField(max_length=5, default="🙂")  # Ex: 😃, 😐, 😞
-    comentario_professor = models.TextField(blank=True, null=True)
+    comentario_professor = models.TextField()
 
     def __str__(self):
-        return f"Desempenho de: {self.aluno.nome}" 
+        return f"{self.aluno.nome} - Desempenho"

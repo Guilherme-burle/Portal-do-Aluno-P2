@@ -233,17 +233,23 @@ def add_eventos(request):
 @login_required
 def desempenho_list(request):
     desempenhos = DesempenhoFrequencia.objects.all()
-    alunos = Aluno.objects.all()
+    return render(request, 'desempenho/list.html', {'desempenhos': desempenhos})
 
+@login_required
+def desempenho_detail(request, pk):
+    desempenho = get_object_or_404(DesempenhoFrequencia, pk=pk)
+    return render(request, 'desempenho/detail.html', {'desempenho': desempenho})
+
+@login_required
+def desempenho_create(request):
     if request.method == 'POST':
-        aluno_id = request.POST.get('aluno')
-        faltas = request.POST.get('faltas')
-        desempenho = request.POST.get('desempenho')
-        emoji = request.POST.get('emoji')
-        comentario = request.POST.get('comentario')
+        aluno_id = request.POST['aluno']
+        faltas = request.POST['faltas']
+        desempenho = request.POST['desempenho']
+        emoji = request.POST['emoji']
+        comentario = request.POST.get('comentario_professor', '')
 
-        aluno = get_object_or_404(Aluno, id=aluno_id)
-
+        aluno = get_object_or_404(Aluno, pk=aluno_id)
         DesempenhoFrequencia.objects.create(
             aluno=aluno,
             faltas=faltas,
@@ -253,26 +259,29 @@ def desempenho_list(request):
         )
         return redirect('desempenho_list')
 
-    return render(request, 'desempenho/list.html', {'desempenhos': desempenhos, 'alunos': alunos})
+    alunos = Aluno.objects.all()
+    return render(request, 'desempenho/form.html', {'alunos': alunos})
 
 @login_required
-def desempenho_edit(request, pk):
+def desempenho_update(request, pk):
     desempenho = get_object_or_404(DesempenhoFrequencia, pk=pk)
-    alunos = Aluno.objects.all()
-
     if request.method == 'POST':
-        desempenho.aluno = get_object_or_404(Aluno, id=request.POST.get('aluno'))
-        desempenho.faltas = request.POST.get('faltas')
-        desempenho.desempenho = request.POST.get('desempenho')
-        desempenho.emoji = request.POST.get('emoji')
-        desempenho.comentario_professor = request.POST.get('comentario')
+        aluno_id = request.POST['aluno']
+        desempenho.aluno = get_object_or_404(Aluno, pk=aluno_id)
+        desempenho.faltas = request.POST['faltas']
+        desempenho.desempenho = request.POST['desempenho']
+        desempenho.emoji = request.POST['emoji']
+        desempenho.comentario_professor = request.POST.get('comentario_professor', '')
         desempenho.save()
         return redirect('desempenho_list')
 
-    return render(request, 'desempenho/edit.html', {'desempenho': desempenho, 'alunos': alunos})
+    alunos = Aluno.objects.all()
+    return render(request, 'desempenho/form.html', {'desempenho': desempenho, 'alunos': alunos})
 
 @login_required
 def desempenho_delete(request, pk):
     desempenho = get_object_or_404(DesempenhoFrequencia, pk=pk)
-    desempenho.delete()
+    if request.method == 'POST':
+        desempenho.delete()
     return redirect('desempenho_list')
+ 

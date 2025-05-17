@@ -14,9 +14,4 @@ urlpatterns = [
     path('avaliacao/', views.avaliar_solidare, name='avaliacao'),
     path('calendario/', views.calendario, name='calendario'),
     path('add_eventos/', views.add_eventos, name='add_eventos'),
-    path('add_verD&F', views.desempenho_list, name='desempenho_list'),
-    path('editar/<int:pk>/', views.desempenho_edit, name='desempenho_edit'),
-    path('excluir/<int:pk>/', views.desempenho_delete, name='desempenho_delete'),
 ]
-
-

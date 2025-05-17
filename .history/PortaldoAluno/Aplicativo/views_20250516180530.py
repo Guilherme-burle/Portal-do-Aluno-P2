@@ -271,7 +271,6 @@ def desempenho_edit(request, pk):
 
     return render(request, 'desempenho/edit.html', {'desempenho': desempenho, 'alunos': alunos})
 
-@login_required
 def desempenho_delete(request, pk):
     desempenho = get_object_or_404(DesempenhoFrequencia, pk=pk)
     desempenho.delete()

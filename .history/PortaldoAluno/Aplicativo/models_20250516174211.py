@@ -67,7 +67,7 @@ class DesempenhoFrequencia(models.Model):
     faltas = models.IntegerField()
     desempenho = models.CharField(max_length=100)  # Ex: "Excelente", "Bom", etc.
     emoji = models.CharField(max_length=5, default="🙂")  # Ex: 😃, 😐, 😞
-    comentario_professor = models.TextField(blank=True, null=True)
+    comentario_professor = models.TextField()
 
     def __str__(self):
-        return f"Desempenho de: {self.aluno.nome}" 
+        return f"Desempenho de: {self.aluno.nome} - Desempenho"

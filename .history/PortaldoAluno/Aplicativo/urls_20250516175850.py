@@ -14,9 +14,11 @@ urlpatterns = [
     path('avaliacao/', views.avaliar_solidare, name='avaliacao'),
     path('calendario/', views.calendario, name='calendario'),
     path('add_eventos/', views.add_eventos, name='add_eventos'),
-    path('add_verD&F', views.desempenho_list, name='desempenho_list'),
-    path('editar/<int:pk>/', views.desempenho_edit, name='desempenho_edit'),
-    path('excluir/<int:pk>/', views.desempenho_delete, name='desempenho_delete'),
+     path('desempenhos/', views.desempenho_list, name='desempenho_list'),
+    path('desempenhos/novo/', views.desempenho_create, name='desempenho_create'),
+    path('desempenhos/<int:pk>/', views.desempenho_detail, name='desempenho_detail'),
+    path('desempenhos/<int:pk>/editar/', views.desempenho_update, name='desempenho_update'),
+    path('desempenhos/<int:pk>/excluir/', views.desempenho_delete, name='desempenho_delete'),
 ]
 
-
+]

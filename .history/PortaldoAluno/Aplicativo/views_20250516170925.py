@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.urls import reverse
 from .decorators import login_required
 from django.contrib.auth.hashers import make_password
+from datetime import datetime
 from datetime import date
 
 
@@ -215,11 +216,12 @@ def add_eventos(request):
 
     if request.method == 'POST':
         nome = request.POST.get('nome')
-        horario = request.POST.get('horario')
+        descricao = request.POST.get('descricao')
 
 
         if nome and data:
-            EventoCalendario.objects.create(nome=nome, data=data, horario=horario, user=request.user)
+            EventoCalendario.objects.create(nome=nome, data=data, descricao=descricao, user=request.user)
+            from django.contrib import messages
             messages.success(request, "Evento adicionado com sucesso!")
             return redirect('calendario')
         else:
@@ -230,49 +232,7 @@ def add_eventos(request):
 
     return render(request, 'add_eventos.html', {'data': data})
 
-@login_required
-def desempenho_list(request):
-    desempenhos = DesempenhoFrequencia.objects.all()
-    alunos = Aluno.objects.all()
 
-    if request.method == 'POST':
-        aluno_id = request.POST.get('aluno')
-        faltas = request.POST.get('faltas')
-        desempenho = request.POST.get('desempenho')
-        emoji = request.POST.get('emoji')
-        comentario = request.POST.get('comentario')
-
-        aluno = get_object_or_404(Aluno, id=aluno_id)
-
-        DesempenhoFrequencia.objects.create(
-            aluno=aluno,
-            faltas=faltas,
-            desempenho=desempenho,
-            emoji=emoji,
-            comentario_professor=comentario
-        )
-        return redirect('desempenho_list')
-
-    return render(request, 'desempenho/list.html', {'desempenhos': desempenhos, 'alunos': alunos})
-
-@login_required
-def desempenho_edit(request, pk):
-    desempenho = get_object_or_404(DesempenhoFrequencia, pk=pk)
-    alunos = Aluno.objects.all()
-
-    if request.method == 'POST':
-        desempenho.aluno = get_object_or_404(Aluno, id=request.POST.get('aluno'))
-        desempenho.faltas = request.POST.get('faltas')
-        desempenho.desempenho = request.POST.get('desempenho')
-        desempenho.emoji = request.POST.get('emoji')
-        desempenho.comentario_professor = request.POST.get('comentario')
-        desempenho.save()
-        return redirect('desempenho_list')
-
-    return render(request, 'desempenho/edit.html', {'desempenho': desempenho, 'alunos': alunos})
-
-@login_required
-def desempenho_delete(request, pk):
-    desempenho = get_object_or_404(DesempenhoFrequencia, pk=pk)
-    desempenho.delete()
-    return redirect('desempenho_list')
+def desempenho_frequencia_view(request, aluno_id):
+    desempenho = get_object_or_404(DesempenhoFrequencia, aluno__id=aluno_id)
+    return render(request, 'desempenho_frequencia.html', {'desempenho': desempenho})

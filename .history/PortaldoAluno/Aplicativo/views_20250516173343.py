@@ -12,6 +12,14 @@ from datetime import date
 
 @login_required
 def home(request):
+    if request.user.is_authenticated:
+        try:
+            cadastro = Cadastro.objects.get(user=request.user)
+            return render(request, 'home.html', {'cadastro': cadastro})
+        except Cadastro.DoesNotExist:
+            return redirect('pagina_de_erro_ou_cadastro')  # ou exiba uma mensagem amigável
+    else:
+        return redirect('login')  # redireciona para login se não autenticado
     return render(request, 'home.html')
 
 @login_required
@@ -231,48 +239,7 @@ def add_eventos(request):
     return render(request, 'add_eventos.html', {'data': data})
 
 @login_required
-def desempenho_list(request):
-    desempenhos = DesempenhoFrequencia.objects.all()
-    alunos = Aluno.objects.all()
-
-    if request.method == 'POST':
-        aluno_id = request.POST.get('aluno')
-        faltas = request.POST.get('faltas')
-        desempenho = request.POST.get('desempenho')
-        emoji = request.POST.get('emoji')
-        comentario = request.POST.get('comentario')
-
-        aluno = get_object_or_404(Aluno, id=aluno_id)
-
-        DesempenhoFrequencia.objects.create(
-            aluno=aluno,
-            faltas=faltas,
-            desempenho=desempenho,
-            emoji=emoji,
-            comentario_professor=comentario
-        )
-        return redirect('desempenho_list')
-
-    return render(request, 'desempenho/list.html', {'desempenhos': desempenhos, 'alunos': alunos})
-
-@login_required
-def desempenho_edit(request, pk):
-    desempenho = get_object_or_404(DesempenhoFrequencia, pk=pk)
-    alunos = Aluno.objects.all()
-
-    if request.method == 'POST':
-        desempenho.aluno = get_object_or_404(Aluno, id=request.POST.get('aluno'))
-        desempenho.faltas = request.POST.get('faltas')
-        desempenho.desempenho = request.POST.get('desempenho')
-        desempenho.emoji = request.POST.get('emoji')
-        desempenho.comentario_professor = request.POST.get('comentario')
-        desempenho.save()
-        return redirect('desempenho_list')
-
-    return render(request, 'desempenho/edit.html', {'desempenho': desempenho, 'alunos': alunos})
-
-@login_required
-def desempenho_delete(request, pk):
-    desempenho = get_object_or_404(DesempenhoFrequencia, pk=pk)
-    desempenho.delete()
-    return redirect('desempenho_list')
+def desempenho_frequencia_view(request):
+    desempenho = DesempenhoFrequencia.objects.filter(user=request.user)
+    return render(request, 'desempenho_frequencia.html', {'desempenho': desempenho})
+ 

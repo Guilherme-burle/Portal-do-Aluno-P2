@@ -70,4 +70,4 @@ class DesempenhoFrequencia(models.Model):
     comentario_professor = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f"Desempenho de: {self.aluno.nome}" 
+        return f"Desempenho de: {self.aluno.nome}"

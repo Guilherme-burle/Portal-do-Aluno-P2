@@ -20,7 +20,7 @@ class Aluno(models.Model):
         ('praticas-administrativas', 'Práticas Administrativas'),
     ]
 
-    nome = models.CharField(max_length=100) 
+    nome = models.CharField(max_length=100)
     data_nascimento = models.DateField()
     escolaridade = models.CharField(max_length=30, choices=ESCOLARIDADE_CHOICES)
     turno = models.CharField(max_length=10, choices=TURNO_CHOICES)
@@ -31,7 +31,7 @@ class Aluno(models.Model):
     curso = models.CharField(max_length=30, choices=CURSOS)
 
     def __str__(self):
-        return self.name
+        return self.nome
 
 class Cadastro(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -48,7 +48,7 @@ class Avaliacao(models.Model):
     pergunta_1 = models.CharField(max_length=3, choices=OPCOES)
     pergunta_2 = models.CharField(max_length=3, choices=OPCOES)
     pergunta_3 = models.CharField(max_length=3, choices=OPCOES)
-    sugestao = models.CharField(max_length=100)
+    sugestao = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
         return f"Avaliação {self.id}"
@@ -56,18 +56,19 @@ class Avaliacao(models.Model):
 class EventoCalendario(models.Model):
     nome = models.CharField(max_length=100)
     data = models.DateField()
+    horario = models.TimeField(blank=True, null=True)
     descricao = models.TextField(blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.nome} - {self.data.strftime('%d/%m/%Y')}"
-    
+        return f"{self.nome} - {self.data}"
+
 class DesempenhoFrequencia(models.Model):
-    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
-    faltas = models.IntegerField()
-    desempenho = models.CharField(max_length=100)  # Ex: "Excelente", "Bom", etc.
-    emoji = models.CharField(max_length=5, default="🙂")  # Ex: 😃, 😐, 😞
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    faltas = models.PositiveIntegerField(default=0)
+    desempenho = models.CharField(max_length=100, blank=True, null=True)
     comentario_professor = models.TextField(blank=True, null=True)
+    emoji = models.CharField(max_length=5, blank=True, null=True)
 
     def __str__(self):
-        return f"Desempenho de: {self.aluno.nome}" 
+        return f"Desempenho de {self.user.username}"
