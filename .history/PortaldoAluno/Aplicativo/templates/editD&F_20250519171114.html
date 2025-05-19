@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Desempenho e Frequência</title>
+</head>
+<body>
+    <h1>Editar Desempenho de {{ desempenho.aluno.nome }}</h1>
+
+    <form method="post">    
+        {% csrf_token %}
+        <label>Aluno:</label>
+        <select name="aluno" required>
+            {% for aluno in alunos %}
+                <option value="{{ aluno.id }}" {% if aluno == desempenho.aluno %}selected{% endif %}>{{ aluno.nome }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label>Faltas:</label>
+        <input type="number" name="faltas" value="{{ desempenho.faltas }}" required><br>
+
+        <label>Desempenho:</label>
+        <input type="text" name="desempenho" value="{{ desempenho.desempenho }}" required><br>
+
+        <label>Emoji:</label>
+        <input type="text" name="emoji" maxlength="5" value="{{ desempenho.emoji }}"><br>
+
+        <label>Comentário do Professor:</label><br>
+        <textarea name="comentario">{{ desempenho.comentario_professor }}</textarea><br>
+
+        <button type="submit">Salvar</button>
+        <a href="{% url 'desempenho_list' %}">Cancelar</a>
+    </form>
+</body>
+</html>

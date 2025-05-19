@@ -268,12 +268,12 @@ def desempenho_edit(request, id):
         desempenho.emoji = request.POST.get('emoji')
         desempenho.comentario_professor = request.POST.get('comentario_professor')
         desempenho.save()
-        return redirect('listD&F')
+        return redirect('desempenho_list')
 
-    return render(request, 'editD&F.html', {'desempenho': desempenho})
+    return render(request, 'desempenho_edit.html', {'desempenho': desempenho})
 
 @login_required
 def desempenho_delete(request, id):
     desempenho = get_object_or_404(DesempenhoFrequencia, id=id)
     desempenho.delete()
-    return redirect('listD&F')
+    return redirect('desempenho_list')

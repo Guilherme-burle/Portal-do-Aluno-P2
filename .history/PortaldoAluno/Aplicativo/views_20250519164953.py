@@ -231,7 +231,7 @@ def add_eventos(request):
     return render(request, 'add_eventos.html', {'data': data})
 
 @login_required
-def desempenho_create(request):
+def addD&F(request):
     if request.method == 'POST':
         aluno_id = request.POST.get('aluno')
         faltas = request.POST.get('faltas')
@@ -248,15 +248,15 @@ def desempenho_create(request):
             emoji=emoji,
             comentario_professor=comentario
         )
-        return redirect('listD&F')
+        return redirect('desempenho_list')
 
     alunos = Aluno.objects.all()
-    return render(request, 'addD&F.html', {'alunos': alunos})
+    return render(request, 'desempenho_create.html', {'alunos': alunos})
 
 @login_required
 def desempenho_list(request):
     desempenhos = DesempenhoFrequencia.objects.select_related('aluno').all()
-    return render(request, 'listD&F.html', {'desempenhos': desempenhos})
+    return render(request, 'desempenho_list.html', {'desempenhos': desempenhos})
 
 @login_required
 def desempenho_edit(request, id):
@@ -268,12 +268,12 @@ def desempenho_edit(request, id):
         desempenho.emoji = request.POST.get('emoji')
         desempenho.comentario_professor = request.POST.get('comentario_professor')
         desempenho.save()
-        return redirect('listD&F')
+        return redirect('desempenho_list')
 
-    return render(request, 'editD&F.html', {'desempenho': desempenho})
+    return render(request, 'desempenho_edit.html', {'desempenho': desempenho})
 
 @login_required
 def desempenho_delete(request, id):
     desempenho = get_object_or_404(DesempenhoFrequencia, id=id)
     desempenho.delete()
-    return redirect('listD&F')
+    return redirect('desempenho_list')

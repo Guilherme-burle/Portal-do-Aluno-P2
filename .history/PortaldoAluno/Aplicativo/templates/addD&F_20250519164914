@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>Adicionar Desempenho</title></head>
+<body>
+    <h1>Adicionar Desempenho</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Aluno:</label>
+        <select name="aluno" required>
+            {% for aluno in alunos %}
+                <option value="{{ aluno.id }}">{{ aluno.nome }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Faltas:</label>
+        <input type="number" name="faltas" required><br><br>
+
+        <label>Desempenho:</label>
+        <input type="text" name="desempenho" required><br><br>
+
+        <label>Emoji:</label>
+        <input type="text" name="emoji" value="🙂" maxlength="5"><br><br>
+
+        <label>Comentário do Professor:</label><br>
+        <textarea name="comentario_professor"></textarea><br><br>
+
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'desempenho_list' %}">Voltar</a>
+</body>
+</html>

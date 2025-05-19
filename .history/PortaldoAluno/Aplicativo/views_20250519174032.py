@@ -231,7 +231,7 @@ def add_eventos(request):
     return render(request, 'add_eventos.html', {'data': data})
 
 @login_required
-def desempenho_create(request):
+def addD&F(request):
     if request.method == 'POST':
         aluno_id = request.POST.get('aluno')
         faltas = request.POST.get('faltas')

@@ -100,7 +100,7 @@
 
     <h3>Editar Desempenho e Frequência</h3>
     
-    <form method="POST" action="{% url 'editD&F' desempenho.id %}">
+    <form action="/desempenho/editar/{{id}}" method="POST">
       <input type="text" name="nome_aluno" placeholder="Nome do aluno" value="{{nome_aluno}}" required />
       <input type="number" name="nota" placeholder="Nota" step="0.01" min="0" max="10" value="{{nota}}" required />
       <input type="number" name="frequencia" placeholder="Frequência (%)" min="0" max="100" value="{{frequencia}}" required />
@@ -109,7 +109,7 @@
     </form>
 
     <div class="voltar">
-      <a href="{% url 'listD&F' %}">Voltar à lista</a>
+      <a href="/desempenho/listar">Voltar para a lista</a>
     </div>
   </div>
 </body>

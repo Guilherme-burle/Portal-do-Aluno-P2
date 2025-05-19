@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Editar Desempenho e Frequência</title>
+  <title>Adicionar Desempenho e Frequência</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -90,6 +90,26 @@
     .voltar a:hover {
       text-decoration: underline;
     }
+
+    .alert {
+      padding: 12px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-weight: bold;
+      text-align: center;
+    }
+   
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+   
+    .alert-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
   </style>
 </head>
 <body>
@@ -98,18 +118,19 @@
       <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Instituto Solidare" />
     </div>
 
-    <h3>Editar Desempenho e Frequência</h3>
+    <h3>Adicionar Desempenho e Frequência</h3>
     
-    <form method="POST" action="{% url 'editD&F' desempenho.id %}">
-      <input type="text" name="nome_aluno" placeholder="Nome do aluno" value="{{nome_aluno}}" required />
-      <input type="number" name="nota" placeholder="Nota" step="0.01" min="0" max="10" value="{{nota}}" required />
-      <input type="number" name="frequencia" placeholder="Frequência (%)" min="0" max="100" value="{{frequencia}}" required />
+    <form method="POST" action="{% url 'addD&F' %}">
+       {% csrf_token %}
+      <input type="text" name="nome_aluno" placeholder="Nome do aluno" required />
+      <input type="number" name="nota" placeholder="Nota" step="0.01" min="0" max="10" required />
+      <input type="number" name="frequencia" placeholder="Frequência (%)" min="0" max="100" required />
       
-      <button type="submit" class="btn-cadastro">Salvar alterações</button>
+      <button type="submit" class="btn-cadastro">Salvar</button>
     </form>
 
     <div class="voltar">
-      <a href="{% url 'listD&F' %}">Voltar à lista</a>
+      <a href="/desempenho/listar">Voltar para a lista</a>
     </div>
   </div>
 </body>

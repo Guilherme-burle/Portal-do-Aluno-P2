@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lista de Desempenhos</title></head>
+<body>
+    <h1>Lista de Desempenhos e Frequência</h1>
+    <a href="{% url 'desempenho_create' %}">Adicionar Novo</a>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Aluno</th>
+            <th>Faltas</th>
+            <th>Desempenho</th>
+            <th>Emoji</th>
+            <th>Comentário</th>
+            <th>Ações</th>
+        </tr>
+        {% for item in desempenhos %}
+        <tr>
+            <td>{{ item.aluno.nome }}</td>
+            <td>{{ item.faltas }}</td>
+            <td>{{ item.desempenho }}</td>
+            <td>{{ item.emoji }}</td>
+            <td>{{ item.comentario_professor }}</td>
+            <td>
+                <a href="{% url 'desempenho_edit' item.id %}">Editar</a> |
+                <a href="{% url 'desempenho_delete' item.id %}">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

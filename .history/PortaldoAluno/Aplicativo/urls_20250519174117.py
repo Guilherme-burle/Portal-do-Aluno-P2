@@ -17,7 +17,7 @@ urlpatterns = [
     path('desempenho/adicionar/', views.desempenho_create, name='addD&F'),
     path('desempenho/', views.desempenho_list, name='listD&F'),
     path('listD&F/editar/<int:id>/', views.desempenho_edit, name='editD&F'),
-    path('listD&F/excluir/<int:id>/', views.desempenho_delete, name='desempenho_delete'),
+    path('desempenho/excluir/<int:id>/', views.desempenho_delete, name='desempenho_delete'),
 ]
 
 

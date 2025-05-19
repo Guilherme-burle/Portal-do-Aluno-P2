@@ -276,4 +276,4 @@ def desempenho_edit(request, id):
 def desempenho_delete(request, id):
     desempenho = get_object_or_404(DesempenhoFrequencia, id=id)
     desempenho.delete()
-    return redirect('listD&F')
+    return redirect('desempenho_list')
