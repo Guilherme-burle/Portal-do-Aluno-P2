@@ -23,7 +23,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
       width: 100%;
-      max-width: 600px;
+      max-width: 800px;
       overflow-y: auto;
       max-height: 90vh;
     }
@@ -60,12 +60,30 @@
       border-color: #cc0000;
     }
 
+    .btn {
+      background-color: #00a0e4;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 10px;
+      display: inline-block;
+      width: 200px;
+    }
+
+    .btn:hover {
+      background-color: #007bbd;
+    }
+
     .voltar {
       margin-top: 20px;
     }
 
     .voltar a {
-      color: #007bff;
+      color: white;
       text-decoration: none;
       font-weight: bold;
     }
@@ -96,7 +114,7 @@
     {% endfor %}
 
     <div class="voltar">
-      <a href="{% url 'home' %}">Voltar à home</a>
+      <a class="btn" href="{% url 'home' %}">Voltar à home</a>
     </div>
   </div>
 </body>
