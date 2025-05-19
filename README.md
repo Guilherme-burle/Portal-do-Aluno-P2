@@ -164,14 +164,13 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário favorável 2:**  
   Dado que o administrador está logado no portal
-  Quando acessa a aba “Gerenciar alunos”, posteriormente "Editar D&F" no aluno desejado e muda as informações desejadas <br>
+  Quando acessa a aba “Desempenho e frequência”, posteriormente "Editar" no aluno desejado e muda as informações desejadas <br>
   Então as novas informações são salvas no banco de dados, assim, substituindo as antigas. <br>
 
 - **Cenário desfavorável 1:**  
   Dado que o aluno está logado no portal <br>
   Quando acessa a aba “Desempenho e Frequência” <br>
-  Então os campos aparecem em branco, pois não foram preenchidos ainda.
-
+  Então uma mensagem avisa que não há dados cadastrados ainda.
 </details>
 
 ### OBS:
