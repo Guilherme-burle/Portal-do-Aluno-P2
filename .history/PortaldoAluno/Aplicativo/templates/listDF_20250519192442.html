@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Home Administrador - Alvo Certo</title>
+  <meta charset="UTF-8" />
+  <title>Desempenho e Frequência</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -22,7 +22,9 @@
       border: 2px solid #00a0e4;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       text-align: center;
-      width: 350px;
+      width: 600px;
+      overflow-y: auto;
+      max-height: 90vh;
     }
 
     .logo {
@@ -30,8 +32,8 @@
       padding: 15px;
       border-radius: 10px 10px 0 0;
       display: flex;
+      align-items: center;
       justify-content: center;
-      margin: -40px -40px 20px -40px;
     }
 
     .logo img {
@@ -40,7 +42,25 @@
 
     h3 {
       color: #00a0e4;
-      margin-bottom: 30px;
+      margin-top: 20px;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #00a0e4;
+      color: white;
     }
 
     .btn {
@@ -48,31 +68,35 @@
       color: white;
       border: none;
       padding: 12px;
-      width: 100%;
+      width: 150px;
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-      margin: 10px 0;
+      margin-top: 10px;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn:hover {
       background-color: #007bbd;
     }
+
+    .voltar {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .voltar a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .voltar a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo">
-      <img src="https://i.imgur.com/7H8lMIL.png" alt="Logo Alvo Certo">
-    </div>
-    <h3>Painel do Administrador</h3>
-    {% if user.is_authenticated %}
-    <p>Bem-vindo, {{ user.first_name|default:"usuário" }}!</p>
-    <button class="btn" onclick="location.href='{% url 'ver' %}'">Gerenciar Alunos Cadastrados</button>
-    <button class="btn" onclick="location.href='{% url 'add' %}'">Cadastrar Alunos</button>
-    <button class="btn" onclick="location.href='{% url 'listDF' %}'">Desempenho e Frequência</button>
-    <button class="btn" onclick="location.href='{% url 'logout' %}'">Sair</button>
-    {% endif %}
-  </div>
+  
 </body>
 </html>

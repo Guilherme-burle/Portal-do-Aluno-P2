@@ -6,9 +6,9 @@ from .models import Aluno, Avaliacao, EventoCalendario, DesempenhoFrequencia
 from django.contrib import messages
 from django.urls import reverse
 from .decorators import login_required
-from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.hashers import make_password
 from datetime import date
+
 
 @login_required
 def home(request):
@@ -243,23 +243,19 @@ def desempenho_create(request):
         DesempenhoFrequencia.objects.create(
             aluno=aluno,
             faltas=faltas,
+            desempenho=desempenho,
             emoji=emoji,
             comentario_professor=comentario
         )
-        return redirect('listDF')
+        return redirect('listD&F')
 
     alunos = Aluno.objects.all()
-    return render(request, 'addDF.html', {'alunos': alunos})
-
-@user_passes_test(lambda u: u.is_staff)
-def desempenho_list(request):
-    desempenhos = DesempenhoFrequencia.objects.select_related('aluno').all()
-    return render(request, 'listDF.html', {'desempenhos': desempenhos})
+    return render(request, 'addD&F.html', {'alunos': alunos})
 
 @login_required
-def desempenho_list_alunos(request):
+def desempenho_list(request):
     desempenhos = DesempenhoFrequencia.objects.select_related('aluno').all()
-    return render(request, 'listDF_aluno.html', {'desempenhos': desempenhos})
+    return render(request, 'listD&F.html', {'desempenhos': desempenhos})
 
 @login_required
 def desempenho_edit(request, id):
@@ -271,13 +267,12 @@ def desempenho_edit(request, id):
         desempenho.emoji = request.POST.get('emoji')
         desempenho.comentario_professor = request.POST.get('comentario_professor')
         desempenho.save()
-        return redirect('listDF')
+        return redirect('listD&F')
 
-    return render(request, 'editDF.html', {'desempenho': desempenho})
+    return render(request, 'editD&F.html', {'desempenho': desempenho})
 
 @login_required
 def desempenho_delete(request, id):
     desempenho = get_object_or_404(DesempenhoFrequencia, id=id)
     desempenho.delete()
-    return redirect('listDF')
-
+    return redirect('listD&F')

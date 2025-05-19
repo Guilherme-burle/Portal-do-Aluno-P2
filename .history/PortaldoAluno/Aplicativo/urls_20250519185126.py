@@ -14,12 +14,10 @@ urlpatterns = [
     path('avaliacao/', views.avaliar_solidare, name='avaliacao'),
     path('calendario/', views.calendario, name='calendario'),
     path('add_eventos/', views.add_eventos, name='add_eventos'),
-    path('addDF', views.desempenho_create, name='addDF'),
-    path('listDF/', views.desempenho_list, name='listDF'),
-    path('listDF_aluno/', views.desempenho_list_alunos, name='listDF_aluno'),
-    path('editDF/<int:id>/', views.desempenho_edit, name='editDF'),
-    path('deleteDF/<int:id>/', views.desempenho_delete, name='deleteDF'),
-
+    path('addD&F', views.desempenho_create, name='addD&F'),
+    path('listD&F/', views.desempenho_list, name='listD&F'),
+    path('editD&F/editar/<int:id>/', views.desempenho_edit, name='editD&F'),
+    path('listD&F/excluir/<int:id>/', views.desempenho_delete, name='desempenho_delete'),
 ]
 
 

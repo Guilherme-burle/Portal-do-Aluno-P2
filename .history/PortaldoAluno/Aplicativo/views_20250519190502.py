@@ -6,9 +6,9 @@ from .models import Aluno, Avaliacao, EventoCalendario, DesempenhoFrequencia
 from django.contrib import messages
 from django.urls import reverse
 from .decorators import login_required
-from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.hashers import make_password
 from datetime import date
+
 
 @login_required
 def home(request):
@@ -251,15 +251,10 @@ def desempenho_create(request):
     alunos = Aluno.objects.all()
     return render(request, 'addDF.html', {'alunos': alunos})
 
-@user_passes_test(lambda u: u.is_staff)
+@login_required
 def desempenho_list(request):
     desempenhos = DesempenhoFrequencia.objects.select_related('aluno').all()
     return render(request, 'listDF.html', {'desempenhos': desempenhos})
-
-@login_required
-def desempenho_list_alunos(request):
-    desempenhos = DesempenhoFrequencia.objects.select_related('aluno').all()
-    return render(request, 'listDF_aluno.html', {'desempenhos': desempenhos})
 
 @login_required
 def desempenho_edit(request, id):
@@ -280,4 +275,3 @@ def desempenho_delete(request, id):
     desempenho = get_object_or_404(DesempenhoFrequencia, id=id)
     desempenho.delete()
     return redirect('listDF')
-

@@ -16,7 +16,7 @@ urlpatterns = [
     path('add_eventos/', views.add_eventos, name='add_eventos'),
     path('addDF', views.desempenho_create, name='addDF'),
     path('listDF/', views.desempenho_list, name='listDF'),
-    path('listDF_aluno/', views.desempenho_list_alunos, name='listDF_aluno'),
+    path('meu-desempenho/', views.desempenho_list_alunos, name='listDFAluno'),
     path('editDF/<int:id>/', views.desempenho_edit, name='editDF'),
     path('deleteDF/<int:id>/', views.desempenho_delete, name='deleteDF'),
 

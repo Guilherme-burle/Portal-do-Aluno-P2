@@ -63,9 +63,10 @@ class EventoCalendario(models.Model):
         return f"{self.nome} - {self.data.strftime('%d/%m/%Y')}"
     
 class DesempenhoFrequencia(models.Model):
-    aluno = models.OneToOneField(Aluno, on_delete=models.CASCADE)
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
     faltas = models.IntegerField()
-    emoji = models.CharField(max_length=5) 
+    desempenho = models.CharField(max_length=100)  
+    emoji = models.CharField(max_length=5, default="🙂") 
     comentario_professor = models.TextField(blank=True, null=True)
 
     def __str__(self):
