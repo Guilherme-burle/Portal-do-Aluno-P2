@@ -56,7 +56,7 @@ class Avaliacao(models.Model):
 class EventoCalendario(models.Model):
     nome = models.CharField(max_length=100)
     data = models.DateField()
-    horario = models.TimeField(blank=True, null=True)
+     horario = models.TimeField(blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
