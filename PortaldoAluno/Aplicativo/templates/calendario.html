@@ -26,14 +26,14 @@
         padding: 20px;
         text-align: center;
         position: relative;
-        }
+    }
 
     .calendario-header h2 {
         margin: 0;
         font-size: 20px;
         position: relative;
         z-index: 1;
-        }
+    }
 
     .calendario-header button {
         position: absolute;
@@ -46,19 +46,19 @@
         font-weight: bold;
         border-radius: 6px;
         cursor: pointer;
-        }
+    }
 
     .calendario-header button:hover {
         background-color: #ccefff;
-        }
+    }
 
     .calendario-header button:first-of-type {
         left: 20px;
-        }
+    }
 
     .calendario-header button:last-of-type {
         right: 20px;
-        }
+    }
 
     table {
       width: 100%;
@@ -99,22 +99,30 @@
       margin-top: 20px;
     }
 
+    .evento-nome {
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .evento-nome:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-
   <script>
-  const urlAddEventos = "{% url 'add_eventos' %}";
+    const urlAddEventos = "{% url 'add_eventos' %}";
 
-  const eventosDoMes = {
-    {% regroup eventos by data as eventos_por_data %}
-    {% for grupo in eventos_por_data %}
-      "{{ grupo.grouper|date:'Y-m-d' }}": [
-        {% for evento in grupo.list %}
-          "{{ evento.nome|escapejs }}"{% if not forloop.last %},{% endif %}
-        {% endfor %}
-      ]{% if not forloop.last %},{% endif %}
-    {% endfor %}
+    const eventosDoMes = {
+      {% regroup eventos by data as eventos_por_data %}
+      {% for grupo in eventos_por_data %}
+        "{{ grupo.grouper|date:'Y-m-d' }}": [
+          {% for evento in grupo.list %}
+            { id: {{ evento.id }}, nome: "{{ evento.nome|escapejs }}", horario: "{{ evento.horario|time:'H:i' }}" }{% if not forloop.last %},{% endif %}
+          {% endfor %}
+        ]{% if not forloop.last %},{% endif %}
+      {% endfor %}
     };
   </script>
 
@@ -139,10 +147,26 @@
       </thead>
       <tbody id="dias"></tbody>
     </table>
-  <button class="btn" onclick="location.href='{% url 'home' %}'">Voltar à home</button>
+    <button class="btn" onclick="location.href='{% url 'home' %}'">Voltar à home</button>
   </div>
 
   <script>
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+
     const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
     let anoAtual = {{ ano_atual }};
     let mesAtual = {{ mes_atual }};
@@ -207,12 +231,48 @@
 
               eventosDoDia.forEach(evento => {
                 const eventoDiv = document.createElement("div");
-                eventoDiv.textContent = evento;
                 eventoDiv.style.backgroundColor = "#dff0fb";
                 eventoDiv.style.marginBottom = "4px";
                 eventoDiv.style.padding = "2px 6px";
                 eventoDiv.style.borderRadius = "4px";
-                eventoDiv.style.fontWeight = "bold";
+                eventoDiv.style.display = "flex";
+                eventoDiv.style.justifyContent = "space-between";
+                eventoDiv.style.alignItems = "center";
+
+                const eventoTexto = document.createElement("div");
+                const link = document.createElement("a");
+                link.className = "evento-nome";
+                link.textContent = evento.nome;
+                link.href = `/editar_evento/${evento.id}/`;
+                eventoTexto.appendChild(link);
+                eventoTexto.innerHTML += ` - <span style="font-size: 11px; font-weight: bold;">${evento.horario}</span>`;
+
+                eventoDiv.appendChild(eventoTexto);
+
+                const formDelete = document.createElement("form");
+                formDelete.method = "POST";
+                formDelete.action = `/deletar_evento/${evento.id}`;
+                formDelete.style.margin = "0";
+
+                const inputCSRF = document.createElement("input");
+                inputCSRF.type = "hidden";
+                inputCSRF.name = "csrfmiddlewaretoken";
+                inputCSRF.value = csrftoken;
+                formDelete.appendChild(inputCSRF);
+
+                const btnDelete = document.createElement("button");
+                btnDelete.type = "submit";
+                btnDelete.style.background = "none";
+                btnDelete.style.border = "none";
+                btnDelete.style.cursor = "pointer";
+                btnDelete.style.fontSize = "16px";
+                btnDelete.title = "Deletar evento";
+                btnDelete.textContent = "🗑️";
+
+                formDelete.appendChild(btnDelete);
+
+                eventoDiv.appendChild(formDelete);
+
                 containerEventos.appendChild(eventoDiv);
               });
 

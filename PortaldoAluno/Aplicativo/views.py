@@ -281,3 +281,41 @@ def desempenho_delete(request, id):
     desempenho.delete()
     return redirect('listDF')
 
+@login_required
+def editar_evento(request, evento_id):
+    evento = get_object_or_404(EventoCalendario, id=evento_id)
+
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        horario = request.POST.get('horario')
+
+        if not nome or not horario:
+                messages.error(request, 'Todos os campos são obrigatórios.')
+                return render(request, 'editar_eventos.html', {'evento': evento})
+
+        alterado = ( nome != evento.nome or horario != evento.horario)
+
+        if alterado:
+            evento.nome = nome
+            evento.horario = horario
+            evento.save()
+
+            mensagem="Evento atualizado com sucesso!"
+        else:
+            mensagem="Você precisa alterar alguma informação."
+
+        return render(request, 'editar_eventos.html', {
+            'evento': evento,
+            'mensagem': mensagem,
+            'tipo_mensagem': 'success'
+        })
+
+        
+    return render(request, 'editar_eventos.html', {'evento': evento})
+
+@login_required
+def deletar_evento(request, evento_id):
+    evento = get_object_or_404(EventoCalendario, id=evento_id)
+    evento.delete()
+    return redirect(request.META.get('HTTP_REFERER', 'calendario'))
+

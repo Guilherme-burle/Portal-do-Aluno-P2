@@ -19,7 +19,8 @@ urlpatterns = [
     path('listDF_aluno/', views.desempenho_list_alunos, name='listDF_aluno'),
     path('editDF/<int:id>/', views.desempenho_edit, name='editDF'),
     path('deleteDF/<int:id>/', views.desempenho_delete, name='deleteDF'),
-
+    path('editar_evento/<int:evento_id>/', views.editar_evento, name='editar_evento'),
+    path('deletar_evento/<int:evento_id>', views.deletar_evento, name='deletar_evento'),
 ]
 
 
