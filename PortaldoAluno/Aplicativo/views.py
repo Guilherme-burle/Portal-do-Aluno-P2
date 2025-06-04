@@ -274,9 +274,12 @@ def desempenho_list(request):
 
 @login_required
 def desempenho_list_alunos(request):
-    aluno = get_object_or_404(Aluno, user=request.user)
-    desempenhos = DesempenhoFrequencia.objects.filter(aluno=aluno)
+    aluno = Aluno.objects.filter(user=request.user).first()
 
+    if aluno:
+        desempenhos = DesempenhoFrequencia.objects.filter(aluno=aluno)
+    else:
+        desempenhos = [] 
     return render(request, 'listDF_aluno.html', {'desempenhos': desempenhos})
 
 @login_required
