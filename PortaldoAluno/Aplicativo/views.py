@@ -2,7 +2,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login
-from .models import Aluno, Avaliacao, EventoCalendario, DesempenhoFrequencia
+from .models import Aluno, Avaliacao, EventoCalendario, DesempenhoFrequencia, User
 from django.contrib import messages
 from django.urls import reverse
 from .decorators import login_required
@@ -91,9 +91,12 @@ def logout_view(request):
     logout(request)
     return redirect('home')  
 
+from django.contrib.auth.models import User
+
 @login_required
 def add_aluno(request):
     if request.method == 'POST':
+        usuario_id = request.POST.get('usuario_id')
         nome = request.POST.get('nome')
         data_nascimento = request.POST.get('data_nascimento')
         escolaridade = request.POST.get('escolaridade')
@@ -104,10 +107,13 @@ def add_aluno(request):
         telefone = request.POST.get('telefone')
         curso = request.POST.get('curso')
 
-        if not all([nome, data_nascimento, escolaridade, turno, escola, endereco, bairro, telefone, curso]):
-            return render(request, 'add.html', {'erro': 'Todos os campos são obrigatórios'})
+        if not all([usuario_id, nome, data_nascimento, escolaridade, turno, escola, endereco, bairro, telefone, curso]):
+            return render(request, 'add.html', {'erro': 'Todos os campos são obrigatórios', 'usuarios': User.objects.all()})
+
+        usuario = User.objects.get(id=usuario_id)
 
         aluno = Aluno.objects.create(
+            user=usuario,
             nome=nome,
             data_nascimento=data_nascimento,
             escolaridade=escolaridade,
@@ -122,9 +128,9 @@ def add_aluno(request):
         aluno.save()
 
         messages.success(request, 'Aluno cadastrado com sucesso!')
-        return render(request, 'add.html')
+        return render(request, 'add.html', {'usuarios': User.objects.all()})
 
-    return render(request, 'add.html')
+    return render(request, 'add.html', {'usuarios': User.objects.all()})
 
 @login_required
 def ver(request):
@@ -268,7 +274,9 @@ def desempenho_list(request):
 
 @login_required
 def desempenho_list_alunos(request):
-    desempenhos = DesempenhoFrequencia.objects.select_related('aluno').all()
+    aluno = get_object_or_404(Aluno, user=request.user)
+    desempenhos = DesempenhoFrequencia.objects.filter(aluno=aluno)
+
     return render(request, 'listDF_aluno.html', {'desempenhos': desempenhos})
 
 @login_required
