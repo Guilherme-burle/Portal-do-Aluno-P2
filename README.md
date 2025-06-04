@@ -200,13 +200,6 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - [Screencast site portal do aluno 2]()
 ---
 
-## Relato Pair Programming 2:
-  Trabalhamos em duplas e utilizamos o recurso de compartilhamento de tela durante as reuniões para atender a todos os requisitos do projeto. Essa abordagem permitiu uma melhor gestão do tempo, garantindo que as entregas fossem realizadas de maneira eficiente e dentro dos prazos estabelecidos. 
-
-  **Divisao de Tarefas:**
-
-  **Metodologia de Trabalho:** 
-
 ## Links Úteis
 
 - [Docs](https://docs.google.com/document/d/1Kb8RnBP_5Gz-eml2weoGkFe5UCOAMaLPehDUtYEnm3E/edit?tab=t.0)
@@ -214,3 +207,4 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - [Figma](https://www.figma.com/design/fahGccQiZEC5xWfqc5brNX/Untitled?m=auto&t=6C6LfIGmLXlI1Yj5-6)
 - [Diagrama](https://miro.com/app/board/uXjVI-xQymA=/)
 - [Slides apresentação SR1](https://www.canva.com/design/DAGlk-OyK3U/sfz8-SnF07B0pNAjbGoarA/edit)
+- [Slides apresentação SR2]()
