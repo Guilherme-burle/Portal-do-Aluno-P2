@@ -147,10 +147,13 @@
         <input type="email" name="email" placeholder="E-mail" required>
         <input type="password" name="senha" placeholder="Senha" required>
 
-        <div class="checkbox-container">
-          <input type="checkbox" name="is_admin" id="is_admin" onchange="toggleAdminPassword()">
-          <label for="is_admin">Administrador</label>
+        <div class="input-checkbox">
+          <label>
+            <input type="checkbox" name="is_admin" id="is_admin" onchange="toggleAdminPassword()">
+            Administrador
+          </label>  
         </div>
+
 
         <div id="admin-password-field">
           <input type="password" name="admin_password" placeholder="Senha de administrador">

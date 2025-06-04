@@ -25,15 +25,24 @@ def cadastro(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
         is_admin = request.POST.get('is_admin') == 'on' 
+        admin_password = request.POST.get('admin_password')
 
         print(f"Nome: {nome}")
         print(f"E-mail: {email}")
         print(f"Senha: {senha}")
         print(f"Administrador: {is_admin}")
+        print(f"Senha admin: {admin_password}")
 
         if User.objects.filter(email=email).exists():  
             return render(request, 'cadastro.html', {'mensagem': 'E-mail já está em uso.'})
         
+        if is_admin:
+            if admin_password != '12345solidare':
+                return render(request, 'cadastro.html', {
+                    'mensagem': 'Senha de administrador incorreta.',
+                    'tipo_mensagem': 'error'
+                })
+
         try:
             user = User.objects.create_user(
                 username=email,  
@@ -57,6 +66,7 @@ def cadastro(request):
             })
 
     return render(request, 'cadastro.html')
+
 
 def login(request):
     if request.method == 'POST':
@@ -221,7 +231,7 @@ def add_eventos(request):
         if nome and data:
             EventoCalendario.objects.create(nome=nome, data=data, horario=horario, user=request.user)
             messages.success(request, "Evento adicionado com sucesso!")
-            return redirect('')
+            return redirect('calendario')
         else:
             return render(request, 'add_eventos.html', {'erro': 'Dados incompletos.', 'data': data}) 
 
@@ -280,4 +290,42 @@ def desempenho_delete(request, id):
     desempenho = get_object_or_404(DesempenhoFrequencia, id=id)
     desempenho.delete()
     return redirect('listDF')
+
+@login_required
+def editar_evento(request, evento_id):
+    evento = get_object_or_404(EventoCalendario, id=evento_id)
+
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        horario = request.POST.get('horario')
+
+        if not nome or not horario:
+                messages.error(request, 'Todos os campos são obrigatórios.')
+                return render(request, 'editar_eventos.html', {'evento': evento})
+
+        alterado = ( nome != evento.nome or horario != evento.horario)
+
+        if alterado:
+            evento.nome = nome
+            evento.horario = horario
+            evento.save()
+
+            mensagem="Evento atualizado com sucesso!"
+        else:
+            mensagem="Você precisa alterar alguma informação."
+
+        return render(request, 'editar_eventos.html', {
+            'evento': evento,
+            'mensagem': mensagem,
+            'tipo_mensagem': 'success'
+        })
+
+        
+    return render(request, 'editar_eventos.html', {'evento': evento})
+
+@login_required
+def deletar_evento(request, evento_id):
+    evento = get_object_or_404(EventoCalendario, id=evento_id)
+    evento.delete()
+    return redirect(request.META.get('HTTP_REFERER', 'calendario'))
 

@@ -52,7 +52,8 @@
       display: block;
       text-align: left;
       margin-top: 10px;
-      color: #00a0e4;
+      color: #333;
+      color: #00a0e4
     }
 
     .btn-cadastrar {
@@ -88,13 +89,13 @@
     .checkbox-container {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 5px; 
       margin-top: 10px;
-      justify-content: flex-start;
+      justify-content: flex-start; 
     }
 
     .checkbox-container input {
-      margin: 0;
+      margin: 0; 
     }
 
     .checkbox-container label {
@@ -106,7 +107,7 @@
       flex-direction: column;
       align-items: center;
       color: white;
-    }
+    }    
 
     header {
       background-color: #00a0e4;
@@ -118,14 +119,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: calc(100vh - 100px);
+      min-height: calc(100vh - 100px); 
       padding-top: 20px;
     }
 
-    /* Estilo para o campo da senha de administrador */
-    #admin-password-field {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -136,9 +133,9 @@
       <h1>Cadastro</h1>
     </div>
   </header>
-
   <div class="main-content">
     <div class="container">
+    
       <h3>Crie sua conta</h3>
 
       <form method="post">
@@ -146,32 +143,19 @@
         <input type="text" name="nome" placeholder="Nome" required>
         <input type="email" name="email" placeholder="E-mail" required>
         <input type="password" name="senha" placeholder="Senha" required>
-
+    
         <div class="checkbox-container">
-          <input type="checkbox" name="is_admin" id="is_admin" onchange="toggleAdminPassword()">
+          <input type="checkbox" name="is_admin" id="is_admin">
           <label for="is_admin">Administrador</label>
         </div>
-
-        <div id="admin-password-field">
-          <input type="password" name="admin_password" placeholder="Senha de administrador">
-        </div>
-
+    
         <button type="submit" class="btn-cadastrar">Cadastrar</button>
       </form>
-
+    
       <div class="login">
         Já tem uma conta? <a href="{% url 'login' %}">Faça login</a>
       </div>
     </div>
   </div>
-
-  <script>
-    function toggleAdminPassword() {
-      const check = document.getElementById('is_admin');
-      const field = document.getElementById('admin-password-field');
-      field.style.display = check.checked ? 'block' : 'none';
-    }
-  </script>
-  
 </body>
 </html>

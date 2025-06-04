@@ -25,15 +25,24 @@ def cadastro(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
         is_admin = request.POST.get('is_admin') == 'on' 
+        admin_password = request.POST.get('admin_password')
 
         print(f"Nome: {nome}")
         print(f"E-mail: {email}")
         print(f"Senha: {senha}")
         print(f"Administrador: {is_admin}")
+        print(f"Senha admin: {admin_password}")
 
         if User.objects.filter(email=email).exists():  
             return render(request, 'cadastro.html', {'mensagem': 'E-mail já está em uso.'})
         
+        if is_admin:
+            if admin_password != '12345solidare':
+                return render(request, 'cadastro.html', {
+                    'mensagem': 'Senha de administrador incorreta.',
+                    'tipo_mensagem': 'error'
+                })
+
         try:
             user = User.objects.create_user(
                 username=email,  
@@ -57,6 +66,7 @@ def cadastro(request):
             })
 
     return render(request, 'cadastro.html')
+
 
 def login(request):
     if request.method == 'POST':
