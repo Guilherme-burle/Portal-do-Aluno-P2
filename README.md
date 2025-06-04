@@ -195,8 +195,17 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 ## Screencasts
 - [Sreencast Figma Lo-Fi](https://youtu.be/hD8LePoT_Wk)
 - [Screencast site portal do aluno](https://youtu.be/MeUWsWJPRtE?feature=shared)
-
+- [Screencast CI/CD]()
+- [Screencast testes automatizados]()
+- [Screencast site portal do aluno 2]()
 ---
+
+## Relato Pair Programming 2:
+  Trabalhamos em duplas e utilizamos o recurso de compartilhamento de tela durante as reuniões para atender a todos os requisitos do projeto. Essa abordagem permitiu uma melhor gestão do tempo, garantindo que as entregas fossem realizadas de maneira eficiente e dentro dos prazos estabelecidos. 
+
+  **Divisao de Tarefas:**
+
+  **Metodologia de Trabalho:** 
 
 ## Links Úteis
 
