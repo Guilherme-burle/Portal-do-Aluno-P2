@@ -104,7 +104,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário desfavorável 2:**  
   Dado que o aluno está matriculado e logado <br>
-  Quando acessa a aba “Calendário acadêmico”, posteriormente "Adicionar evento" e preenche letras ao invés de números no horário do evento <br>
+  Quando acessa a aba “Calendário acadêmico”, posteriormente "Adicionar evento" e não preenhce o horário do evento.<br>
   Então o sistema exibe mensagem de erro e só salva o evento quando o aluno preencher corretamente.
   
 </details>
@@ -127,11 +127,6 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
   Quando acessa a aba “Calendário acadêmico” e posteriormente "Excluir" no evento desejado <br>
   Então o evento é excluído do banco de dados e desaparece do calendário.
 
-- **Cenário desfavorável 1:**  
-  Dado que o aluno está matriculado e logado no portal <br>
-  Quando acessa a aba “Calendário acadêmico” <br>
-  Então não aparece nada em nenhum dia do calendário, pois ainda não há eventos cadastrados.
-
 </details>
 
 <details>
@@ -149,7 +144,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário desfavorável 2:**  
   Dado que o administrador está logado no portal <br>
-  Quando acessa a aba “Desempenho e Frequência” e tenta preencher números ao invés de letras no nome do evento <br>
+  Quando acessa a aba “Desempenho e Frequência” e esquece de preencher o nome do aluno. <br>
   Então o sistema não permite e só salva as informações quando forem postas corretamente.
 
 </details>
