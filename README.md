@@ -84,8 +84,8 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário desfavorável 1:**  
   Dado que o aluno está matriculado e logado no portal <br>
-  Quando acessa a aba “Avalie a Solidare” <br>
-  Então uma falha no carregamento impede o acesso à aba.
+  Quando acessa a aba “Avalie a Solidare” e não consegue responder todas as perguntas.<br>
+  Então da erro na hora de concluir a sua avaliação.
 
 </details>
 
