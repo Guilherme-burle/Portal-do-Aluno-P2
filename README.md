@@ -185,6 +185,8 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 ## Issue / Bugtracker:
 ![image](https://github.com/user-attachments/assets/a20ce089-9de6-47ab-a92e-c4399ea83196)
 
+## Issue / Bugtracker parte 2:
+[]()
 
 ---
 ## Screencasts
@@ -192,7 +194,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - [Screencast site portal do aluno](https://youtu.be/MeUWsWJPRtE?feature=shared)
 - [Screencast CI/CD]()
 - [Screencast testes automatizados]()
-- [Screencast site portal do aluno 2]()
+- [Screencast site portal do aluno 2](https://youtu.be/R0ZSnatxuuI)
 ---
 
 ## Links Úteis
@@ -202,4 +204,4 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - [Figma](https://www.figma.com/design/fahGccQiZEC5xWfqc5brNX/Untitled?m=auto&t=6C6LfIGmLXlI1Yj5-6)
 - [Diagrama](https://miro.com/app/board/uXjVI-xQymA=/)
 - [Slides apresentação SR1](https://www.canva.com/design/DAGlk-OyK3U/sfz8-SnF07B0pNAjbGoarA/edit)
-- [Slides apresentação SR2]()
+- [Slides apresentação SR2](https://www.canva.com/design/DAGpawfZ4vk/3-clsyfxyTdssPYi53kmEA/edit?utm_content=DAGpawfZ4vk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
