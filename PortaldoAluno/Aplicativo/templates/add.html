@@ -173,16 +173,25 @@
   </div>
 
   <script>
-    document.getElementById('nome').addEventListener('input', function () {
-      this.value = this.value.replace(/[0-9]/g, '');
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    const nomeInput = document.getElementById('nome');
+    if (nomeInput) {
+        nomeInput.addEventListener('input', function () {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+    }
 
-    document.getElementById('telefone').addEventListener('input', function () {
-      let tel = this.value.replace(/\D/g, '');
-      tel = tel.replace(/^(\d{2})(\d)/g, '($1) $2');
-      tel = tel.replace(/(\d{5})(\d)/, '$1-$2');
-      this.value = tel.slice(0, 15);
-    });
+    const telefoneInput = document.getElementById('telefone');
+    if (telefoneInput) {
+        telefoneInput.addEventListener('input', function () {
+            let tel = this.value.replace(/\D/g, '');
+            tel = tel.replace(/^(\d{2})(\d)/g, '($1) $2');
+            tel = tel.replace(/(\d{5})(\d)/, '$1-$2');
+            this.value = tel.slice(0, 15);
+        });
+    }
+});
+
   </script>
 </body>
 </html>
