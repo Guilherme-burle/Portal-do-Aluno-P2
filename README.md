@@ -34,13 +34,13 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário desfavorável 1:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Cadastrar alunos” e insere letras ao invés de números no campo "idade"
-  Então o sistema não responde adequadamente à tentativa de cadastro, pois no lugar de números foram inseridas letras na idade.
+  Quando acessa a aba “Cadastrar alunos” e esquece de colocar todas as informações devidas.
+  Então o sistema não responde adequadamente à tentativa de cadastro, pois falta informação.
 
 - **Cenário desfavorável 2:**  
   Dado que o administrador está logado no portal  
-  Quando acessa a aba “Cadastrar alunos” e insere números ao invés de letras no campo "nome".
-  Então o sistema não responde adequadamente à tentativa de cadastro, pois um número foi inserido no lugar do nome.
+  Quando acessa a aba “Cadastrar alunos” e não insere corretamente sua "data de nascimento".
+  Então o sistema não responde adequadamente à tentativa de cadastro, pois a data não foi adicionada.
 
 </details>
 
@@ -84,8 +84,8 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 
 - **Cenário desfavorável 1:**  
   Dado que o aluno está matriculado e logado no portal <br>
-  Quando acessa a aba “Avalie a Solidare” <br>
-  Então uma falha no carregamento impede o acesso à aba.
+  Quando acessa a aba “Avalie a Solidare” e não consegue responder todas as perguntas.<br>
+  Então da erro na hora de concluir a sua avaliação.
 
 </details>
 
