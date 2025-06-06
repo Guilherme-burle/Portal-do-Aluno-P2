@@ -193,7 +193,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 ## Screencasts
 - [Sreencast Figma Lo-Fi](https://youtu.be/hD8LePoT_Wk)
 - [Screencast site portal do aluno](https://youtu.be/MeUWsWJPRtE?feature=shared)
-- [Screencast CI/CD]()
+- [Screencast CI/CD](https://youtu.be/0VAGMgBmHXM)
 - [Screencast testes automatizados](https://youtu.be/P9t2NahtQ0A)
 - [Screencast Figma média fidelidade](https://www.youtube.com/watch?v=oSP6ZIDnfQU)
 - [Screencast site portal do aluno 2](https://youtu.be/R0ZSnatxuuI)
