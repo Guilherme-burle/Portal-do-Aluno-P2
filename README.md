@@ -194,8 +194,8 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - [Screencast site portal do aluno](https://youtu.be/MeUWsWJPRtE?feature=shared)
 - [Screencast CI/CD]()
 - [Screencast testes automatizados]()
-- [Screencast Figma média fidelidade[(https://www.youtube.com/watch?v=oSP6ZIDnfQU)
-- [Screencast site portal do aluno 2](https://youtu.be/R0ZSnatxuuI)
+- [Screencast Figma média fidelidade](https://www.youtube.com/watch?v=oSP6ZIDnfQU)
+- [Screencast site portal do aluno pt2](https://youtu.be/R0ZSnatxuuI)
 ---
 
 ## Links Úteis
@@ -203,6 +203,6 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - [Docs](https://docs.google.com/document/d/1Kb8RnBP_5Gz-eml2weoGkFe5UCOAMaLPehDUtYEnm3E/edit?tab=t.0)
 - [Site](https://sites.google.com/d/1QneHjgrhPjpQ_i9iDOVrf8Ivn7McXcIN/p/1fAGUYkQG2JxVmydQqaz1o78MrP8PPQCt/edit)
 - [Figma](https://www.figma.com/design/fahGccQiZEC5xWfqc5brNX/Untitled?m=auto&t=6C6LfIGmLXlI1Yj5-6)
-- [Diagrama](https://miro.com/app/board/uXjVI-xQymA=/)
+- [Diagrama SR1](https://miro.com/app/board/uXjVI-xQymA=/)
 - [Slides apresentação SR1](https://www.canva.com/design/DAGlk-OyK3U/sfz8-SnF07B0pNAjbGoarA/edit)
 - [Slides apresentação SR2](https://www.canva.com/design/DAGpawfZ4vk/3-clsyfxyTdssPYi53kmEA/edit?utm_content=DAGpawfZ4vk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
