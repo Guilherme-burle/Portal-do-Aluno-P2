@@ -39,7 +39,7 @@ describe('Como aluno eu gostaria de avaliar a instituição com sugestões de me
     cy.get('a').click();
     cy.get('[type="text"]').type('teste_user');
     cy.get('[type="email"]').type('teste_user@cesar.school');
-    cy.get('[type="password"]').type('test123');
+    cy.get('[name="senha"]').type('test123');
     cy.get('.btn-cadastrar').click();
     cy.visit('http://127.0.0.1:8000/login/');
     cy.get('[type="email"]').type('teste_user@cesar.school');

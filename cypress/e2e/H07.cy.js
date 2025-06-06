@@ -52,7 +52,7 @@ describe('Adicionar desempenho', () => {
     cy.get('[type="password"]').type('test123'); // ajuste conforme seu app
     cy.get('.btn-login').click();
     cy.get("[onclick=\"location.href='/listDF/'\"]").click();
-    cy.get('[href="/editDF/6/"]').click();
+    cy.get('[href="/editDF/8/"]').click();
     cy.get('[type="number"]').clear()
     cy.get('[type="number"]').type('16');
     cy.get(':nth-child(1) > input').click();
@@ -69,6 +69,6 @@ describe('Adicionar desempenho', () => {
     cy.get('[type="password"]').type('test123');
     cy.get('.btn-login').click();
     cy.get("[onclick=\"location.href='/listDF/'\"]").click();
-    cy.get('[href="/deleteDF/6/"]').click();
+    cy.get('[href="/deleteDF/8/"]').click();
 });
 });

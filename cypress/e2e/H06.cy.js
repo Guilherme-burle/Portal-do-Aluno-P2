@@ -52,11 +52,8 @@ describe('Adicionar desempenho', () => {
     // Visita a tela de adicionar desempenho
     cy.visit('http://127.0.0.1:8000/addDF');
 
-    // Seleciona o aluno
-    cy.get('select[name="aluno"]').find('option').eq(1).then(option => {
-      const alunoValue = option.attr('value');
-      cy.get('select[name="aluno"]').select(alunoValue);
-    });
+    // Seleciona o alun
+    cy.get('select').select('João da Silva')
 
     // Preenche o número de faltas
     cy.get('input[name="faltas"]').type('4');
@@ -66,16 +63,14 @@ describe('Adicionar desempenho', () => {
 
     // Preenche o comentário
     cy.get('textarea').type('Bom desempenho');
+    cy.get('.btn-cadastro').click();
   });
    it('Erro ao preeencher o número de faltas com letras (cenário desfavorável 1)', () => {
     // Visita a tela de adicionar desempenho
     cy.visit('http://127.0.0.1:8000/addDF');
 
     // Seleciona o aluno
-    cy.get('select[name="aluno"]').find('option').eq(1).then(option => {
-      const alunoValue = option.attr('value');
-      cy.get('select[name="aluno"]').select(alunoValue);
-    });
+    cy.get('select').select('João da Silva')
 
     // Seleciona desempenho - aqui usando o radio button "Satisfeito"
     cy.get('input[type="radio"]').eq(2).check();
