@@ -194,6 +194,7 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 - [Screencast site portal do aluno](https://youtu.be/MeUWsWJPRtE?feature=shared)
 - [Screencast CI/CD]()
 - [Screencast testes automatizados]()
+- [Screencast Figma média fidelidade[(https://www.youtube.com/watch?v=oSP6ZIDnfQU)
 - [Screencast site portal do aluno 2](https://youtu.be/R0ZSnatxuuI)
 ---
 
