@@ -12,13 +12,13 @@ Projeto realizado sob a supervisão da professora Ana Carolina Candido de Melo.
 3. [Rafael de Lima Cavalcanti Loyo Fernandes](https://github.com/rafaelcf29)  
 4. [Gabriel França de Albuquerque Pernambuco](https://github.com/gabrielfranca10)  
 5. [Caio Cabral da Mata Buonora](https://github.com/caiobuonora)  
-6. [Victor de Matos Vilela](https://github.com/VI170105)  
-7. [Fernando Soares da Silva](https://github.com/Nando101210)  
-8. [Eduardo Henrique de Sá Nogueira Lemos](https://github.com/EduardoHenrique15)  
-9. [Luca Ribeiro Albuquerque](https://github.com/LucaAlbuquerque)  
-10. Helena Maia Jordão  
-11. Raul Pedro Soares de Lima  
-12. Maria Eduarda Leal  
+6. [Victor de Matos Vilela](https://github.com/VictorVilela0)  
+8. [Fernando Soares da Silva](https://github.com/Nando101210)  
+9. [Eduardo Henrique de Sá Nogueira Lemos](https://github.com/EduardoHenrique15)  
+10. [Luca Ribeiro Albuquerque](https://github.com/LucaAlbuquerque)  
+11. Helena Maia Jordão  
+12. Raul Pedro Soares de Lima  
+13. Maria Eduarda Leal  
 
 ---
 
